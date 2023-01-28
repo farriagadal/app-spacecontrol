@@ -5,10 +5,10 @@ import { useHistory, useParams } from 'react-router-dom'
 
 import InsertChartIcon from '@material-ui/icons/InsertChart'
 import Button from '@material-ui/core/Button'
-import SettingsIcon from '@material-ui/icons/Settings'
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
 import DevicesList from 'src/components/DevicesList/DevicesList'
 import Modal from 'src/components/Modal/Modal'
-import SecurityForm from 'src/components/SecurityForm/SecurityForm'
+import HowConnect from 'src/components/HowConnect/HowConnect'
 
 import RoomService from 'src/services/room.service'
 
@@ -31,9 +31,9 @@ const RoomDetail = (props) => {
           <span>{room.securityName}</span>
         </div>
 
-        <Modal component={<SecurityForm room={room} />} padding="60px 80px 80px 80px" button={
+        <Modal component={<HowConnect/>} button={
           <Button className="rounded-pill py-2 px-4 border-2" variant="outlined">
-            <SettingsIcon className="mr-2"/>
+            <LockOutlinedIcon className="mr-2"/>
             <b>Seguridad</b>
           </Button>}
         />

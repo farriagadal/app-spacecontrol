@@ -10,7 +10,7 @@ import Alert from 'src/components/Alert/Alert'
 import SideContent from 'src/components/SideContent/SideContent'
 import Button from '@material-ui/core/Button'
 
-import styles from './ConfirmEmail.module.scss'
+import { styles } from './ConfirmEmail.module.scss'
 
 const ConfirmEmail = () => {
   const { showAlert, alertProps } = useAlert()
