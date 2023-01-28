@@ -16,7 +16,7 @@ const DevicesList = (props) => {
         <Modal component={<HowConnect/>} button={
           <Button className="rounded-pill py-2 px-4 border-2" variant="outlined">
             <LinkIcon className="mr-1"/>
-            <b>¿Como Enlazar?</b>
+            <b>¿Como Enlanzar?</b>
           </Button>}
         />
       </div>

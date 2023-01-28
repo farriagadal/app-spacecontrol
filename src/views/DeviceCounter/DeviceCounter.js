@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react'
 import DeviceService from 'src/services/device.service'
 // styles
 import styles from './DeviceCounter.module.scss'
-import Button from '@material-ui/core/Button'
 
 const DeviceCounter = () => {
   const [room, setRoom] = useState({})
@@ -28,8 +27,8 @@ const DeviceCounter = () => {
       <h1 className={styles.title}>{room.name}</h1>
       <p className={styles.count}>Personas: <b>{room.count}</b></p>
       <div className={styles.buttons}>
-        <Button variant="contained" color="primary" className={styles.btnCounter} onClick={decrement}>-1</Button>
-        <Button variant="contained" color="primary" className={styles.btnCounter} onClick={increment}>+1</Button>
+        <button onClick={decrement}>-1</button>
+        <button onClick={increment}>+1</button>
       </div>
     </section>
   )

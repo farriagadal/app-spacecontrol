@@ -4,10 +4,9 @@
 }
 
 .content {
-  display: grid;
+  display: flex;
   justify-content: center;
-  padding-top: 100px;
-  padding-bottom: 120px;
+  padding: 120px 0;
   width: stretch;
 
   @media (max-width: 768px) {
@@ -16,10 +15,10 @@
 }
 
 .logo {
-  width: 130px;
   display: none;
-  justify-self: center;
-  margin-top: -30px;
+  position: absolute;
+  width: 130px;
+  bottom: 50px;
 
   @media (max-width: 768px) {
     display: block;
