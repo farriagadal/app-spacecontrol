@@ -1,0 +1,32 @@
+.main {
+  min-height: 100vh;
+  display: flex;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  padding: 130px 20px;
+  width: stretch;
+}
+
+.card {
+  width: 500px;
+  text-align: center;
+
+  h1 {
+    margin: 30px 0;
+    font-size: 29px;
+    opacity: 0.9;
+  }
+
+  p {
+    margin-bottom: 30px;
+    opacity: 0.9;
+    line-height: 26px;
+  }
+
+  button {
+    min-width: 300px;
+  }
+}

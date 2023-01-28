@@ -1,0 +1,96 @@
+.main {
+  display: flex;
+  min-height: 100vh;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  padding: 100px 20px;
+  width: stretch;
+
+  .form-inputs {
+    display: grid;
+    row-gap: 15px;
+    column-gap: 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    @media (max-width: 480px) {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    &__agree {
+      grid-column: span 2;
+
+      @media (max-width: 480px) {
+        grid-column: initial;
+      }
+    }
+  }
+}
+
+.card {
+  width: 600px;
+
+  @media (max-width: 480px) {
+    width: 312px;
+  }
+
+  h1 {
+    margin-bottom: 56px;
+    font-size: 29px;
+    text-align: left;
+  }
+}
+
+.googleSection {
+  width: 312px;
+  margin: auto;
+}
+
+.googleBtn {
+  font-weight: 700;
+  font-size: 16px;
+  height: 45px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: #F5F7FF;
+  border-radius: 4px;
+  
+  img {
+    width: 20px;
+    margin-right: 10px;
+  }
+}
+
+// .registerBtn {
+//   display: flex;
+//   font-size: 14px;
+//   margin-top: 40px;
+//   justify-content: center;
+
+//   a {
+//     margin-left: 10px;
+//   }
+// }
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 40px 0;
+
+  p {
+    margin: 0 10px;
+    font-size: 13px;
+  }
+
+  span {
+    width: 50%;
+    background: black;
+    height: 1px;
+    opacity: 0.1;
+  }
+}

@@ -1,0 +1,41 @@
+.SideContent-Component {
+  // background: #000;
+  background: linear-gradient(62deg, #111d1d 0%, #1f1f1f 100%);
+  overflow: hidden;
+  position: relative;
+  width: 600px;
+  padding: 100px 60px 100px 50px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
+  &.device {
+    background: linear-gradient(62deg, #1f2431 0%, #28446b 100%);
+  }
+
+  &__logo {
+    margin-left: -11px;
+    width: 220px;
+    margin-bottom: 43px;
+    margin-top: -30px;
+  }
+
+  &__card {
+    color: #fff;
+
+    p {
+      font-size: 15px;
+      margin-top: 25px;
+    }
+  }
+
+  &__shape {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 150px;
+    transform: translate(-50%, 50%) scale(3);
+    opacity: 0.4;
+  }
+}

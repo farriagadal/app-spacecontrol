@@ -2,7 +2,47 @@
   // background: #ccc;
   padding: 10px 20px;
 
+  .logo {
+    height: 53px;
+    // filter: brightness(0.5);
+    position: absolute;
+  }
+
   .icon {
-    margin-right: 10px;
+    margin-right: 20px;
+  }
+
+  .dropdown-user {
+
+    &__label {
+      display: flex;
+      align-items: center;
+      padding: 20px 20px;
+
+      &__icon {
+        margin-right: 10px;
+      }
+
+      &__info {
+        p {
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    &__actions {
+      padding-bottom: 20px;
+
+      &__option {
+        padding: 10px 23px;
+        transition: 0.2s;
+        width: 100%;
+        text-align: left;
+
+        &:hover {
+          background: #f2f2f2;
+        }
+      }
+    }
   }
 }

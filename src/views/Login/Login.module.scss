@@ -1,0 +1,72 @@
+.main {
+  display: flex;
+  min-height: 100vh;
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+  width: stretch;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.card {
+  width: 312px;
+
+  h1 {
+    margin-bottom: 56px;
+    font-size: 29px;
+    text-align: center;
+  }
+}
+
+.btnGoogle {
+  font-weight: 700;
+  font-size: 16px;
+  height: 45px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: #F5F7FF;
+  border-radius: 4px;
+  
+  img {
+    width: 20px;
+    margin-right: 10px;
+  }
+}
+
+.registerBtn {
+  display: flex;
+  font-size: 14px;
+  margin-top: 40px;
+  justify-content: center;
+
+  a {
+    margin-left: 10px;
+  }
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 25px 0;
+
+  p {
+    margin: 0 10px;
+    font-size: 13px;
+  }
+
+  span {
+    width: 50%;
+    background: black;
+    height: 1px;
+    opacity: 0.1;
+  }
+}

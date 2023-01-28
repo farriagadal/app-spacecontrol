@@ -1,0 +1,62 @@
+.DevicesList {
+  padding: 50px 0 100px 0;
+
+  &__list {
+    display: block;
+    margin-top: 35px;
+
+    &__label {
+      display: grid;
+      padding: 0 20px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin: 10px 0;
+
+      p {
+        font-size: 12px;
+        line-height: 23px;
+        text-transform: uppercase;
+        color: #8f8f8f;
+        font-weight: 500;
+        justify-self: center;
+
+        &:first-child {
+          justify-self: left;
+        }
+      }
+    }
+
+    &__item {
+      background: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 25px;
+      height: 60px;
+      padding: 0 20px;
+      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      a, button {
+        justify-self: right;
+      }
+    }
+  }
+
+  &__empty {
+    display: grid;
+    justify-items: center;
+    font-size: 15px;
+    /* line-height: 23px; */
+    text-transform: uppercase;
+    color: #8f8f8f;
+    font-weight: 600;
+    /* justify-self: center; */
+    padding: 60px;
+    margin: 20px 0;
+    box-shadow: 0px 7px 20px 7px rgba(0, 0, 0, 0.05);
+
+    svg {
+      font-size: 45px;
+      margin-bottom: 20px;
+    }
+  }
+}

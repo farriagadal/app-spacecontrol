@@ -1,0 +1,17 @@
+.HowConnect-Component {
+  width: 500px;
+  text-align: center;
+
+  img {
+    width: 200px;
+  }
+
+  p {
+    line-height: 45px;
+    label {
+      background: linear-gradient(90deg,#d7d6d6,#e8e8e8);
+      padding: 10px 15px;
+      font-weight: 600;
+    }
+  }
+}

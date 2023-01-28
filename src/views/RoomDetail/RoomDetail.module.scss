@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: baseline;
+
+  h1 {
+    margin: 0;
+    margin-right: 30px;
+  }
+
+  span {
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: rgba(179, 179, 179, 0.7);
+  }
+}
