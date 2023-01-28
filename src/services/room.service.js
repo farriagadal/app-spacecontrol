@@ -30,19 +30,8 @@ const createRoom = (room) => new Promise((resolve, reject) => {
     })
 })
 
-const editRoom = (room) => new Promise((resolve, reject) => {
-  api.put(`/rooms/${room.id}`, room)
-    .then((response) => {
-      resolve(response.room)
-    })
-    .catch((err) => {
-      reject(err)
-    })
-})
-
 export default {
   getRooms,
   getRoom,
-  createRoom,
-  editRoom
+  createRoom
 }

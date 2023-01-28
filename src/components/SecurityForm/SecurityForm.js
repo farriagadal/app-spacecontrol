@@ -12,74 +12,52 @@ import SettingsIcon from '@material-ui/icons/Settings'
 import MainContext from 'src/context/mainContext'
 // styles
 import styles from './SecurityForm.module.scss'
-// services
-import RoomService from 'src/services/room.service'
 
 const SecurityForm = ({ room }) => {
   const [, mainDispatch] = useContext(MainContext.Context)
-  const name = useInputValue(room.name)
-  const capacity = useInputValue(room.capacity)
+  const securityName = useInputValue(room.securityName)
+  const maxCapacity = useInputValue(100)
   const password = useInputValue('')
   const { showAlert, alertProps } = useAlert()
-  const form = { id: room.id, name: name.value, password: password.value, capacity: parseInt(capacity.value) }
 
-  const editRoom = async () => {
+  const handleSignIn = async () => {
     mainDispatch({ type: 'SET_LOADING', payload: true })
     try {
-      await RoomService.editRoom(form)
+      // TODO: Check if the room data has changed.
+      const obj = { securityName: securityName.value, password: password.value, maxCapacity: maxCapacity.value }
+      console.log(obj)
+      // const data = await AuthService.signIn({ securityName: securityName.value, password: password.value })
+      // const user = { token: data.token, ...data.user }
       setTimeout(() => {
         mainDispatch({ type: 'SET_LOADING', payload: false })
-        window.location.reload(false)
       }, 1000)
     } catch (err) {
       setTimeout(() => {
         mainDispatch({ type: 'SET_LOADING', payload: false })
       }, 1000)
-      showAlert({ type: 'error', message: 'Ha ocurrido un error al editar la sala, inténte más tarde.' })
+      showAlert({ type: 'error', message: 'El Codigo de sala y/o contraseña están errones.' })
       mainDispatch({ type: 'SET_LOADING', payload: false })
     }
   }
 
-  const isValidForm = () => {
-    if (!form.name || !form.capacity) { return false }
-    if (form.name !== room.name || form.capacity !== room.capacity) { return true }
-    if (form.password && form.password.length > 5) { return true }
-    return false
-  }
-
   return (
-    <div className={styles.main}>
+    <div>
       <h2 className="mb-5 d-flex align-items-center justify-content-center">
         <SettingsIcon className="mr-2"/>
-        Configuración
+        Seguridad
       </h2>
-      {/* {
-        isValidForm() ? 'TRUE' : 'FALSE'
-      } */}
-      <div className={styles.form}>
-        <InputText value={name} label="Nombre de sala" type="name" />
-        <div>
-          <p>ID de sala</p>
-          <p className={styles.codeField}>{ room.securityName }</p>
-        </div>
-        <InputText value={password} label="Contraseña de sala" type="password" placeholder="•••••••••••••" />
-        <InputText value={capacity} label="Capacidad de sala" type="number" />
-      </div>
+      <p>ID de sala</p>
+      <p className={`${styles.codeField} mt-3 mb-4`}>{ securityName.value }</p>
+      <InputText value={password} label="Contraseña de sala" type="password" placeholder="•••••••••••••" />
+      <InputText value={maxCapacity} label="Capacidad de sala" type="number" />
+      <br />
       <Button
-        disabled={!isValidForm()}
-        onClick={() => editRoom()}
+        onClick={() => handleSignIn()}
         variant="contained"
         color="primary"
         className="w-100 mt-4"
       >
         Guardar cambios
-      </Button>
-      <Button
-        variant="outlined"
-        color="primary"
-        className="w-100 mt-4"
-      >
-        Resetear
       </Button>
       <Alert {...alertProps} />
     </div>

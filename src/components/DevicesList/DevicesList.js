@@ -31,7 +31,7 @@ const DevicesList = (props) => {
         {props.devices && props.devices.length
           ? props.devices.map((device, index) =>
           <div className="DevicesList__list__item" key={index}>
-            <p><b>DV-000{device.id}</b></p>
+            <p><b>{device.name}</b></p>
             <p>{device.ubication}</p>
             <p>{device.updatedAt}</p>
             <p>{device.totalCounts}</p>
