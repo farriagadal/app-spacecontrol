@@ -1,0 +1,123 @@
+.Register-Component {
+  display: flex;
+  min-height: 100vh;
+
+  &__sidebar {
+    background-image: linear-gradient(62deg, #111d1d 0%, #1f1f1f 100%);
+    overflow: hidden;
+    position: relative;
+    width: 400px;
+    padding: 100px 60px 100px 50px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+
+    &__logo {
+      margin-left: -11px;
+      width: 220px;
+      margin-bottom: 43px;
+    }
+
+    &__card {
+      color: #fff;
+
+      p {
+        font-size: 15px;
+        margin-top: 25px;
+      }
+    }
+
+    &__shape {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      width: 150px;
+      transform: translate(-50%, 50%) scale(3);
+      opacity: 0.4;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    padding: 100px 20px;
+    width: stretch;
+
+    &__card {
+      width: 600px;
+
+      h1 {
+        margin-bottom: 56px;
+        font-size: 29px;
+        text-align: left;
+      }
+    }
+
+    .form-inputs {
+      display: grid;
+      row-gap: 15px;
+      column-gap: 20px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+
+      &__agree {
+        grid-column: span 2;
+      }
+    }
+
+
+    &__google-section {
+      width: 312px;
+      margin: auto;
+    }
+
+    &__btn-google {
+      font-weight: 700;
+      font-size: 16px;
+      height: 45px;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background: #F5F7FF;
+      border-radius: 4px;
+      
+      img {
+        width: 20px;
+        margin-right: 10px;
+      }
+    }
+
+    &__register-btn {
+      display: flex;
+      font-size: 14px;
+      margin-top: 40px;
+      justify-content: center;
+
+      a {
+        margin-left: 10px;
+      }
+    }
+
+    &__divider {
+      display: flex;
+      align-items: center;
+      margin: 40px 0;
+
+      p {
+        margin: 0 10px;
+        font-size: 13px;
+      }
+
+      span {
+        width: 50%;
+        background: black;
+        height: 1px;
+        opacity: 0.1;
+      }
+    }
+  }
+  
+
+}

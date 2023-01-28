@@ -1,0 +1,23 @@
+@import "grid";
+@import "utils";
+@import "fonts";
+@import "buttons";
+
+
+:root {
+  --primary: #248181;
+  --primary-dark: #154949;
+}
+
+body {
+  background: #262626;
+}
+
+.App {
+  background: #fff;
+}
+
+button, a {
+  cursor: pointer;
+  outline: none;
+}

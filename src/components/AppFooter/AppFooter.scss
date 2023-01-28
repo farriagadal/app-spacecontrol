@@ -1,0 +1,59 @@
+.AppFooter {
+  background: #262626;
+
+  @media (max-width: 768px) {
+    padding: 60px 0 100px 0;
+  }
+
+  .container {
+    display: flex;
+    min-height: 125px;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      display: block;
+    }
+
+    .links {
+      @media (max-width: 768px) {
+        display: grid;
+        justify-items: center;
+      }
+
+      a {
+        color: #D5D5D5;
+        font-weight: normal;
+        font-size: 15px;
+        -webkit-text-decoration-line: underline;
+        margin-right: 30px;
+
+        @media (max-width: 768px) {
+          margin-bottom: 20px;
+        }
+      }
+    }
+
+    .social-medias {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+
+      @media (max-width: 768px) {
+        justify-content: center;
+        margin-top: 41px;
+      }
+
+      .logo {
+        height: 40px;
+      }
+
+      a {
+        margin: 0 5px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}

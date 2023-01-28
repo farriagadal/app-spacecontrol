@@ -1,0 +1,35 @@
+.Dropdown {
+  position: relative;
+
+  &__label {
+    display: flex;
+    cursor: pointer;
+    width: 100%;
+
+    &__icon {
+      transition: all 0.2s;
+    }
+  }
+
+  &__options {
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    z-index: 1;
+    margin-top: -1px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: 0px 7px 10px 1px rgba(5, 5, 5, 0.1);
+
+    .items {
+      > div {
+        padding: 10px;
+        transition: all 0.2s;
+
+        &:hover {
+          background: #ddd;
+        }
+      }
+    }
+  }
+}

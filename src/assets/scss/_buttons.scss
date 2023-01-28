@@ -1,0 +1,32 @@
+
+.btn {
+  height: 47px;
+  font-weight: bold;
+  border: none;
+  font-size: 16px;
+  padding: 0 30px;
+  border-radius: 5px;
+
+  &--primary {
+    background: var(--primary);
+    color: #fff;
+
+    &:active {
+      background: var(--primary-dark);
+    }
+  }
+}
+
+a { 
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+// .MuiTypography-body1 {
+//   font-size: 14px !important;
+// }
+
+// .MuiCheckbox-colorSecondary.Mui-checked {
+//   color: var(--primary) !important;
+// }
