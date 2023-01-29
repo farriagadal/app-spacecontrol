@@ -17,15 +17,16 @@ import Rooms from 'src/views/Rooms/Rooms'
 import RoomDetail from 'src/views/RoomDetail/RoomDetail'
 import ComingSoon from 'src/views/ComingSoon/ComingSoon'
 import Loader from 'src/components/Loader/Loader'
+import Layout from 'src/layout/Layout'
 // DEVICE
 import DeviceLogin from 'src/views/DeviceLogin/DeviceLogin'
 import DeviceCounter from 'src/views/DeviceCounter/DeviceCounter'
 
 import 'src/assets/scss/app.scss'
 
-import MainContext from 'src/context/mainContext'
 import AuthContext from 'src/context/authContext'
 import DeviceContext from 'src/context/deviceContext'
+import MainContext from 'src/context/mainContext'
 
 const App = () => {
   return (
@@ -44,9 +45,10 @@ const App = () => {
                   <Route exact path="/coming-soon" component={ComingSoon} />
                   <PrivateRoute exact path="/profile" component={Profile} />
                   <PrivateRoute exact path="/rooms" component={Rooms} />
-                  <PrivateRoute exact path="/rooms/:id" component={RoomDetail} />
+
                   <Route exact path="/device" component={DeviceLogin} />
                   <DeviceRoute exact path="/device/counter" component={DeviceCounter} />
+
                 </Switch>
               </div>
               <Loader />

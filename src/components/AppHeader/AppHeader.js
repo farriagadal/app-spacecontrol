@@ -1,28 +1,20 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
-import { useHistory, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import logo from 'src/assets/icons/logo-black.svg'
 
 import MenuIcon from '@material-ui/icons/Menu'
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined'
 import PersonIcon from '@material-ui/icons/Person'
-import { IconButton } from '@material-ui/core'
+
 import Dropdown from 'src/components/Dropdown/Dropdown'
 
 import './AppHeader.scss'
 
-import AuthContext from '../../context/authContext'
+import { IconButton } from '@material-ui/core'
 
 const AppHeader = () => {
-  const [, authDispatch] = useContext(AuthContext.Context)
-  const history = useHistory()
-
-  const logout = () => {
-    authDispatch({ type: 'LOG_OUT' })
-    history.push('/')
-  }
-
   return (
     <header className="AppHeader d-flex">
       <Link to="/">
@@ -58,7 +50,7 @@ const AppHeader = () => {
               <Link to="/profile">
                 <button className="dropdown-user__actions__option">Ver Cuenta</button>
               </Link>
-              <button onClick={() => logout()} className="dropdown-user__actions__option">Cerrar Sesión</button>
+              <button className="dropdown-user__actions__option">Cerrar Sesión</button>
             </div>
           </div>
         </Dropdown>

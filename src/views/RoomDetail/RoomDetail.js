@@ -1,7 +1,4 @@
-/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
-
-import { useHistory, useParams } from 'react-router-dom'
 
 import InsertChartIcon from '@material-ui/icons/InsertChart'
 import Button from '@material-ui/core/Button'
@@ -16,10 +13,10 @@ import styles from './RoomDetail.module.scss'
 
 const RoomDetail = (props) => {
   const [room, setRoom] = useState({})
-  const { id } = useParams()
 
   useEffect(async () => {
-    const data = await RoomService.getRoom(id)
+    const roomId = props.match.params.id
+    const data = await RoomService.getRoom(roomId)
     setRoom(data)
   }, [])
 

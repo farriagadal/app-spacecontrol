@@ -13,7 +13,7 @@ const connectDevice = (payload) => new Promise((resolve, reject) => {
 const execAction = (payload) => new Promise((resolve, reject) => {
   api.put('/device', payload)
     .then((response) => {
-      resolve(response)
+      resolve(response.data)
     })
     .catch((err) => {
       reject(err)
