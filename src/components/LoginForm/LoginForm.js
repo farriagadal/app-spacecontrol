@@ -11,8 +11,8 @@ import Alert from '../../components/Alert/Alert'
 import InputText from '../../components/InputText/InputText'
 import Button from '@material-ui/core/Button'
 // context
-import MainContext from '../../context/mainContext'
 import AuthContext from '../../context/authContext'
+import MainContext from '../../context/mainContext'
 
 const LoginForm = () => {
   const [, authDispatch] = useContext(AuthContext.Context)
@@ -27,8 +27,10 @@ const LoginForm = () => {
     mainDispatch({ type: 'SET_LOADING', payload: true })
     try {
       const data = await AuthService.signIn({ email: email.value, password: password.value })
+      console.log(data)
       const user = { token: data.token, ...data.user }
       authDispatch({ type: 'SET_USER', payload: user })
+      console.log('SET_USER', user)
       setTimeout(() => {
         mainDispatch({ type: 'SET_LOADING', payload: false })
         history.push('/rooms')

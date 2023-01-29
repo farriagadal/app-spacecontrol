@@ -11,7 +11,7 @@ const device = (state, action) => {
       localStorage.removeItem('accessToken')
       return {
         ...state,
-        device: null,
+        device: {},
         isLogged: false
       }
     default:

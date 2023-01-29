@@ -11,7 +11,7 @@ const auth = (state, action) => {
       localStorage.removeItem('accessToken')
       return {
         ...state,
-        user: null,
+        user: {},
         isLogged: false
       }
     default:

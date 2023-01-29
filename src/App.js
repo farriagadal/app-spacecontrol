@@ -1,32 +1,31 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
-import { Route, BrowserRouter, Switch } from 'react-router-dom'
+import React, { Fragment } from 'react'
+import { Route, BrowserRouter } from 'react-router-dom'
 
-import PrivateRoute from 'src/routers/PrivateRoute'
-import DeviceRoute from 'src/routers/DeviceRoute'
-
+import { AnimatedSwitch } from 'react-router-transition'
+import PrivateRoute from './routers/PrivateRoute'
 import { ThemeProvider } from '@material-ui/core'
-import theme from 'src/theme'
+import theme from './theme'
 // APP
-import Login from 'src/views/Login/Login'
-import Register from 'src/views/Register/Register'
-import Profile from 'src/views/Profile/Profile'
-import ConfirmEmail from 'src/views/ConfirmEmail/ConfirmEmail'
-import EmailVerified from 'src/views/EmailVerified/EmailVerified'
-import Rooms from 'src/views/Rooms/Rooms'
-import RoomDetail from 'src/views/RoomDetail/RoomDetail'
-import ComingSoon from 'src/views/ComingSoon/ComingSoon'
-import Loader from 'src/components/Loader/Loader'
-import Layout from 'src/layout/Layout'
+import Login from './views/Login/Login'
+import Register from './views/Register/Register'
+import Profile from './views/Profile/Profile'
+import ConfirmEmail from './views/ConfirmEmail/ConfirmEmail'
+import EmailVerified from './views/EmailVerified/EmailVerified'
+import Rooms from './views/Rooms/Rooms'
+import RoomDetail from './views/RoomDetail/RoomDetail'
+import ComingSoon from './views/ComingSoon/ComingSoon'
+import Loader from './components/Loader/Loader'
+import Layout from './layout/Layout'
 // DEVICE
-import DeviceLogin from 'src/views/DeviceLogin/DeviceLogin'
-import DeviceCounter from 'src/views/DeviceCounter/DeviceCounter'
+import DeviceLogin from './views/DeviceLogin/DeviceLogin'
+import DeviceCounter from './views/DeviceCounter/DeviceCounter'
 
-import 'src/assets/scss/app.scss'
+import './assets/scss/app.scss'
 
-import AuthContext from 'src/context/authContext'
-import DeviceContext from 'src/context/deviceContext'
-import MainContext from 'src/context/mainContext'
+import AuthContext from './context/authContext'
+import DeviceContext from './context/deviceContext'
+import MainContext from './context/mainContext'
 
 const App = () => {
   return (
@@ -36,20 +35,36 @@ const App = () => {
           <BrowserRouter>
             <ThemeProvider theme={theme}>
               <div className="App">
-                <Switch>
+                <AnimatedSwitch
+                  atEnter={{ opacity: 0 }}
+                  atLeave={{ opacity: 0 }}
+                  atActive={{ opacity: 1 }}
+                  className="switch-wrapper"
+                >
                   <Route exact path="/" component={Login} />
                   <Route exact path="/register" component={Register} />
                   <Route exact path="/send-email" component={ConfirmEmail} />
                   <Route exact path="/verify-email" component={EmailVerified} />
                   <Route exact path="/coming-soon" component={ComingSoon} />
                   <Route exact path="/coming-soon" component={ComingSoon} />
+
+                  <Route exact path="/device" component={DeviceLogin} />
+                  {/* <AuthContext.Consumer>
+                    { ([state]) => state.isLogged
+                      ? <Fragment>
+                        <RouteWrapper exact path="/profile" component={Profile} />
+                        <RouteWrapper exact path="/rooms" component={Rooms} />
+                        <RouteWrapper exact path="/rooms/:id" component={RoomDetail} />
+                      </Fragment>
+                      : <Login />
+                    }
+                  </AuthContext.Consumer> */}
                   <PrivateRoute exact path="/profile" component={Profile} />
                   <PrivateRoute exact path="/rooms" component={Rooms} />
 
-                  <Route exact path="/device" component={DeviceLogin} />
-                  <DeviceRoute exact path="/device/counter" component={DeviceCounter} />
+                  <PrivateRoute exact path="/device-counter" component={DeviceCounter} />
 
-                </Switch>
+                </AnimatedSwitch>
               </div>
               <Loader />
             </ThemeProvider>
@@ -59,5 +74,33 @@ const App = () => {
     </MainContext.Provider>
   )
 }
+
+// const RouteWrapper = ({
+//   component: Component,
+//   ...rest
+// }) => (
+//   <Route
+//     {...rest}
+//     render={(props) => (
+//       <Layout>
+//         <Component {...props} />
+//       </Layout>
+//     )}
+//   />
+// )
+
+const RouteWrapper = ({
+  component: Component,
+  ...rest
+}) => (
+  <Route
+    {...rest}
+    render={(props) => (
+      <Layout>
+        <Component {...props} />
+      </Layout>
+    )}
+  />
+)
 
 export default App

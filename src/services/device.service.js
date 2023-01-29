@@ -20,10 +20,10 @@ const execAction = (payload) => new Promise((resolve, reject) => {
     })
 })
 
-const verifyDevice = () => new Promise((resolve, reject) => {
+const verifyToken = (payload) => new Promise((resolve, reject) => {
   api.get('/device/verify')
     .then((response) => {
-      resolve(response)
+      resolve(response.data)
     })
     .catch((err) => {
       reject(err)
@@ -33,5 +33,5 @@ const verifyDevice = () => new Promise((resolve, reject) => {
 export default {
   connectDevice,
   execAction,
-  verifyDevice
+  verifyToken
 }

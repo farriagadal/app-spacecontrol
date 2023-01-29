@@ -2,13 +2,13 @@ import React from 'react'
 
 import { Link } from 'react-router-dom'
 
-import logo from 'src/assets/icons/logo-black.svg'
+import logo from '../../assets/icons/logo-black.svg'
 
 import MenuIcon from '@material-ui/icons/Menu'
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined'
 import PersonIcon from '@material-ui/icons/Person'
 
-import Dropdown from 'src/components/Dropdown/Dropdown'
+import Dropdown from '../Dropdown/Dropdown'
 
 import './AppHeader.scss'
 
@@ -21,11 +21,9 @@ const AppHeader = () => {
         <img className="logo" src={logo} alt="icon" />
       </Link>
       <div className="d-flex ml-auto">
-        <Link to="/rooms">
-          <IconButton className="icon" color="secondary" size="medium">
-            <MenuIcon />
-          </IconButton>
-        </Link>
+        <IconButton className="icon" color="secondary" size="medium">
+          <MenuIcon />
+        </IconButton>
         <IconButton className="icon" color="secondary" size="medium">
           <NotificationsIcon />
         </IconButton>

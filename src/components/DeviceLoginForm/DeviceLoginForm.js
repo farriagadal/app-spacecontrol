@@ -27,6 +27,7 @@ const LoginForm = () => {
     mainDispatch({ type: 'SET_LOADING', payload: true })
     try {
       const data = await DeviceService.connectDevice({ securityName: securityName.value, password: password.value })
+      console.log('data', data)
       const device = { token: data.token, ...data.device }
       deviceDispatch({ type: 'SET_DEVICE', payload: device })
       setTimeout(() => {
