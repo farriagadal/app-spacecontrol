@@ -20,6 +20,8 @@ const Modal = (props) => {
 
   const classes = useStyles()
 
+  console.log(classes)
+
   const [open, setOpen] = useState(false)
 
   const handleOpen = () => {
