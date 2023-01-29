@@ -1,0 +1,32 @@
+.ConfirmEmail-Component {
+  min-height: 100vh;
+  display: flex;
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    padding: 130px 20px;
+    width: stretch;
+
+    &__card {
+      width: 500px;
+      text-align: center;
+
+      h1 {
+        margin: 30px 0;
+        font-size: 29px;
+        opacity: 0.9;
+      }
+
+      p {
+        margin-bottom: 30px;
+        opacity: 0.9;
+        line-height: 26px;
+      }
+
+      button {
+        min-width: 300px;
+      }
+    }
+  }
+}

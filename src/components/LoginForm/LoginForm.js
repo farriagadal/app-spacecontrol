@@ -5,7 +5,7 @@ import AuthService from '../../services/auth.service'
 // hooks
 import useAlert from '../../hooks/useAlert'
 import useInputValue from '../../hooks/useInputValue'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 // components
 import Alert from '../../components/Alert/Alert'
 import InputText from '../../components/InputText/InputText'
@@ -64,6 +64,10 @@ const LoginForm = () => {
       >
         Log in
       </Button>
+      <p className="Login-Component__content__register-btn">
+        ¿No tienes una cuenta?
+        <Link to="/register">Registrate!</Link>
+      </p>
       <Alert {...alertProps} />
     </div>
   )

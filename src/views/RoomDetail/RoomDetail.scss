@@ -1,0 +1,63 @@
+.RoomDetail {
+  padding: 30px 0 150px 0;
+
+  &__title {
+    display: flex;
+    align-items: baseline;
+
+    h1 {
+      margin: 0;
+      margin-right: 30px;
+    }
+
+    span {
+      font-weight: 500;
+      font-size: 18px;
+      text-transform: uppercase;
+      color: rgba(179, 179, 179, 0.7);
+    }
+  }
+
+  &__content {
+    display: flex;
+    min-height: 470px;
+    margin-top: 37px;
+
+    &__metrics {
+      box-shadow: 0px 7px 20px 7px rgba(0, 0, 0, 0.05);
+      width: 30%;
+      display: grid;
+      &__item {
+        align-self: center;
+        label {
+          display: block;
+          text-align: center;
+          text-transform: uppercase;
+          color: rgba(128, 128, 128, 0.7);
+          font-size: 11px;
+          margin-bottom: 10px;
+        }
+        span {
+          display: block;
+          text-align: center;
+          font-weight: 600;
+          font-size: 45px;
+          color: #333333;
+        }
+      }
+    }
+
+    &__chart {
+      margin-left: 5%;
+      width: 65%;
+      box-shadow: 0px 7px 20px 7px rgba(0, 0, 0, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        transform: scale(5.5);
+      }
+    }
+  }
+}

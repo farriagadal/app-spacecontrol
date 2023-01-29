@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React, { useRef, useEffect, useContext, Fragment } from 'react'
 // services
-import useAlert from 'src/hooks/useAlert'
-import AuthService from 'src/services/auth.service'
+import useAlert from '../../hooks/useAlert'
+import AuthService from '../../services/auth.service'
 // components
 import { Link, useLocation, useHistory } from 'react-router-dom'
-import Alert from 'src/components/Alert/Alert'
-import WorkspaceForm from 'src/components/WorkspaceForm/WorkspaceForm'
+import Alert from '../../components/Alert/Alert'
+import WorkspaceForm from '../../components/WorkspaceForm/WorkspaceForm'
 import Button from '@material-ui/core/Button'
 import Slider from 'react-slick'
 // styles
@@ -14,10 +14,10 @@ import './EmailVerified.scss'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 // context
-import MainContext from 'src/context/mainContext'
+import MainContext from '../../context/mainContext'
 // icons
-import emailIcon from 'src/assets/icons/email-verified.svg'
-import checkIcon from 'src/assets/icons/check-big.svg'
+import emailIcon from '../../assets/icons/email-verified.svg'
+import checkIcon from '../../assets/icons/check-big.svg'
 
 const EmailVerified = () => {
   const { showAlert, alertProps } = useAlert()

@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react'
 
 import InsertChartIcon from '@material-ui/icons/InsertChart'
-import Button from '@material-ui/core/Button'
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined'
-import DevicesList from 'src/components/DevicesList/DevicesList'
-import Modal from 'src/components/Modal/Modal'
-import HowConnect from 'src/components/HowConnect/HowConnect'
+import DevicesList from '../../components/DevicesList/DevicesList'
 
-import RoomService from 'src/services/room.service'
+import RoomService from '../../services/room.service'
 
-import styles from './RoomDetail.module.scss'
+import './RoomDetail.scss'
 
 const RoomDetail = (props) => {
   const [room, setRoom] = useState({})
@@ -17,40 +13,32 @@ const RoomDetail = (props) => {
   useEffect(async () => {
     const roomId = props.match.params.id
     const data = await RoomService.getRoom(roomId)
+    console.log('data', data)
     setRoom(data)
   }, [])
 
   return (
-    <div className="pt-5 container">
-      <div className="d-flex align-items-center">
-        <div className={`${styles.header} mr-auto`}>
-          <h1>{room.name}</h1>
-          <span>{room.securityName}</span>
-        </div>
-
-        <Modal component={<HowConnect/>} button={
-          <Button className="rounded-pill py-2 px-4 border-2" variant="outlined">
-            <LockOutlinedIcon className="mr-2"/>
-            <b>Seguridad</b>
-          </Button>}
-        />
+    <div className="RoomDetail container">
+      <div className="RoomDetail__title">
+        <h1>{room.name}</h1>
+        <span>{room.securityName}</span>
       </div>
-      <div className={styles.content}>
-        <div className={styles.metrics}>
-          <div className={styles.metricsItem}>
+      <div className="RoomDetail__content">
+        <div className="RoomDetail__content__metrics">
+          <div className="RoomDetail__content__metrics__item">
             <label>N° Personas actualmente</label>
             <span>{room.count}</span>
           </div>
-          <div className={styles.metricsItem}>
+          <div className="RoomDetail__content__metrics__item">
             <label>Capacidad utilizada</label>
             <span>5%</span>
           </div>
-          <div className={styles.metricsItem}>
+          <div className="RoomDetail__content__metrics__item">
             <label>N° Personas en el día</label>
             <span>120</span>
           </div>
         </div>
-        <div className={styles.chart}>
+        <div className="RoomDetail__content__chart">
           <InsertChartIcon />
         </div>
       </div>

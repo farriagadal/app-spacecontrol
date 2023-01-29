@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react'
-
+// hooks
 import { useLocation } from 'react-router-dom'
-import useAlert from 'src/hooks/useAlert'
-
-import AuthService from 'src/services/auth.service'
-
-import emailIcon from 'src/assets/icons/email-sended.svg'
-import Alert from 'src/components/Alert/Alert'
-import SideContent from 'src/components/SideContent/SideContent'
+import useAlert from '../../hooks/useAlert'
+// services
+import AuthService from '../../services/auth.service'
+// components
+import Alert from '../../components/Alert/Alert'
+import SideContent from '../../components/SideContent/SideContent'
 import Button from '@material-ui/core/Button'
-
-import { styles } from './ConfirmEmail.module.scss'
+// styles
+import './ConfirmEmail.scss'
+// icons
+import emailIcon from '../../assets/icons/email-sended.svg'
 
 const ConfirmEmail = () => {
   const { showAlert, alertProps } = useAlert()
@@ -35,10 +36,10 @@ const ConfirmEmail = () => {
   }
 
   return (
-    <section className={styles.main}>
+    <section className="ConfirmEmail-Component">
       <SideContent />
-      <div className={styles.content}>
-        <div className={styles.card}>
+      <div className="ConfirmEmail-Component__content">
+        <div className="ConfirmEmail-Component__content__card">
           <img src={emailIcon} alt="icon" />
           <h1>Verify your email to continue</h1>
           <p>Reprehenderit esse labore id veniam ut veniam non ex adipisicing amet ullamco dolor proident.</p>

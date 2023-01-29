@@ -2,24 +2,41 @@ import React from 'react'
 
 import Button from '@material-ui/core/Button'
 import LinkIcon from '@material-ui/icons/Link'
-import InboxIcon from '@material-ui/icons/Inbox'
-import Modal from '../Modal/Modal'
-import HowConnect from '../HowConnect/HowConnect'
 
 import './DevicesList.scss'
 
 const DevicesList = (props) => {
+  console.log('props', props)
+
+  // const fakeData = [
+  //   {
+  //     id: 1,
+  //     name: 'Device N°1'
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'Device N°2'
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'Device N°3'
+  //   },
+  //   {
+  //     id: 4,
+  //     name: 'Device N°4'
+  //   }
+  // ]
+
   return (
     <div className="DevicesList container">
       <div className="d-flex align-items-center">
-        <h2 className="mr-auto">Dispositivos</h2>
-        <Modal component={<HowConnect/>} button={
-          <Button className="rounded-pill py-2 px-4 border-2" variant="outlined">
-            <LinkIcon className="mr-1"/>
-            <b>¿Como Enlanzar?</b>
-          </Button>}
-        />
+        <h2>Dispositivos</h2>
+        <Button className="ml-auto rounded-pill py-2 px-4 border-2" variant="outlined">
+          <LinkIcon className="mr-1"/>
+          <b>¿Como Enlanzar?</b>
+        </Button>
       </div>
+
       <div className="DevicesList__list">
         <div className="DevicesList__list__label">
             <p>Nombre dispositivo</p>
@@ -28,7 +45,7 @@ const DevicesList = (props) => {
             <p>Total conteos hoy</p>
             <span />
           </div>
-        {props.devices && props.devices.length
+        {props.devices
           ? props.devices.map((device, index) =>
           <div className="DevicesList__list__item" key={index}>
             <p><b>{device.name}</b></p>
@@ -38,10 +55,7 @@ const DevicesList = (props) => {
             <Button variant="contained">Ver más</Button>
           </div>
           )
-          : <div className="DevicesList__empty">
-              <InboxIcon />
-              No hay dispositivos conectados
-            </div>}
+          : null}
       </div>
     </div>
   )

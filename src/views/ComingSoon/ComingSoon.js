@@ -1,6 +1,7 @@
 import React from 'react'
 
-import diamondIcon from 'src/assets/icons/diamond-dark-grey.svg'
+import diamondIcon from '../../assets/icons/diamond-dark-grey.svg'
+import './ComingSoon.scss'
 
 const ComingSoon = () => (
   <div>

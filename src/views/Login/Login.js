@@ -1,35 +1,29 @@
 import React from 'react'
-
-import { Link } from 'react-router-dom'
 //  components
-import LoginForm from 'src/components/LoginForm/LoginForm'
-import SideContent from 'src/components/SideContent/SideContent'
+import LoginForm from '../../components/LoginForm/LoginForm'
+import SideContent from '../../components/SideContent/SideContent'
 // icons
-import googleIcon from 'src/assets/icons/google-icon.svg'
+import googleIcon from '../../assets/icons/google-icon.svg'
 // styles
-import styles from './Login.module.scss'
+import './Login.scss'
 
 const Login = () => {
   return (
-    <section className={styles.main}>
+    <section className="Login-Component">
       <SideContent />
-      <div className={styles.content}>
-        <div className={styles.card}>
+      <div className="Login-Component__content">
+        <div className="Login-Component__content__card">
           <h1>Sign in</h1>
-          <button type="button" className={styles.btnGoogle}>
+          <button type="button" className="Login-Component__content__btn-google d-flex w-100">
             <img src={googleIcon} alt="icon" />
             Sign in with Google
           </button>
-          <div className={styles.divider}>
+          <div className="Login-Component__content__divider">
             <span />
             <p>OR</p>
             <span />
           </div>
           <LoginForm />
-          <p className={styles.registerBtn}>
-            ¿No tienes una cuenta?
-            <Link to="/register">Registrate!</Link>
-          </p>
         </div>
       </div>
     </section>

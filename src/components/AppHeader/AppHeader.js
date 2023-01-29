@@ -14,7 +14,7 @@ import './AppHeader.scss'
 
 import { IconButton } from '@material-ui/core'
 
-const AppHeader = () => {
+const AppHeader = props => {
   return (
     <header className="AppHeader d-flex">
       <Link to="/">
