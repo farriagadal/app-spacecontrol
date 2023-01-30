@@ -60,7 +60,7 @@ const LoginForm = () => {
         onClick={() => handleSignIn()}
         variant="contained"
         color="primary"
-        className="w-full"
+        className="w-100"
       >
         Log in
       </Button>

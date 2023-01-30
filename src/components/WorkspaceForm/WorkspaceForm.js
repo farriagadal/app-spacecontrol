@@ -42,7 +42,7 @@ const WorkspaceForm = (props) => {
         <p>Reprehenderit esse labore id veniam ut veniam non ex.</p>
         <InputText value={workspace} type="text" />
         <br />
-        <Button onClick={() => handleSignIn()} variant="contained" color="primary" className="w-full">
+        <Button onClick={() => handleSignIn()} variant="contained" color="primary" className="w-100">
           Continue
         </Button>
       </div>
