@@ -60,7 +60,7 @@ const RegisterForm = () => {
       console.log(res)
       setTimeout(() => {
         mainDispatch({ type: 'SET_LOADING', payload: false })
-        history.push('/send-email')
+        history.push('/confirm-email')
       }, 1000)
     } catch (err) {
       console.log('err', err)

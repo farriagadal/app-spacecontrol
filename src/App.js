@@ -36,7 +36,7 @@ const App = () => {
               >
                 <Route exact path="/" component={Login} />
                 <Route exact path="/register" component={Register} />
-                <Route exact path="/send-email" component={ConfirmEmail} />
+                <Route exact path="/confirm-email" component={ConfirmEmail} />
                 <Route exact path="/verify-email" component={EmailVerified} />
                 <RouteWrapper path="/profile" component={Profile} />
                 <RouteWrapper path="/rooms" component={Rooms} />

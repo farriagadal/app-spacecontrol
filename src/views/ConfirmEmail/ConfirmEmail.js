@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 // hooks
 import { useLocation } from 'react-router-dom'
 import useAlert from '../../hooks/useAlert'
@@ -17,15 +17,9 @@ const ConfirmEmail = () => {
   const { showAlert, alertProps } = useAlert()
   const search = useLocation().search
   const email = new URLSearchParams(search).get('email')
-  const sendInit = new URLSearchParams(search).get('send')
+  console.log('email?', email)
 
-  useEffect(() => {
-    if (sendInit) {
-      sendEmail()
-    }
-  }, [])
-
-  const sendEmail = async () => {
+  const handleClick = async () => {
     try {
       await AuthService.resendEmail({ email })
       showAlert({ type: 'success', message: 'Email enviado!' })
@@ -41,9 +35,9 @@ const ConfirmEmail = () => {
       <div className="ConfirmEmail-Component__content">
         <div className="ConfirmEmail-Component__content__card">
           <img src={emailIcon} alt="icon" />
-          <h1>Verify your email to continue</h1>
+          <h1>Email sended!</h1>
           <p>Reprehenderit esse labore id veniam ut veniam non ex adipisicing amet ullamco dolor proident.</p>
-          <Button onClick={() => sendEmail()} variant="outlined" color="primary">
+          <Button onClick={() => handleClick()} variant="outlined" color="primary">
             Resend Email
           </Button>
         </div>

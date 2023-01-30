@@ -1,10 +1,8 @@
 import React, { useRef, useEffect, useContext } from 'react'
 // services
-import useAlert from '../../hooks/useAlert'
 import AuthService from '../../services/auth.service'
 // components
 import { Link, useLocation, useHistory } from 'react-router-dom'
-import Alert from '../../components/Alert/Alert'
 import WorkspaceForm from '../../components/WorkspaceForm/WorkspaceForm'
 import Button from '@material-ui/core/Button'
 import Slider from 'react-slick'
@@ -19,7 +17,6 @@ import emailIcon from '../../assets/icons/email-verified.svg'
 import checkIcon from '../../assets/icons/check-big.svg'
 
 const EmailVerified = () => {
-  const { showAlert, alertProps } = useAlert()
   const sliderRef = useRef()
   const search = useLocation().search
   const token = new URLSearchParams(search).get('token')
@@ -49,9 +46,8 @@ const EmailVerified = () => {
       await AuthService.verifyEmail(token)
       // showAlert({ type: 'success', message: 'Email enviado!' })
     } catch (err) {
-      console.log('verifyEmailToken err', err.response)
-      showAlert({ type: 'error', message: 'Ha ocurrido un error, inténte más tarde' })
-      history.push('/')
+      console.log(err)
+      history.push('/error')
     } finally {
       mainDispatch({ type: 'SET_LOADING', payload: false })
     }
@@ -64,7 +60,7 @@ const EmailVerified = () => {
   return (
     <section className="EmailVerified-Component">
 
-      { !mainState.isLoading
+      { mainState.isLoading
         ? <div className="EmailVerified-Component__content">
           <div className="EmailVerified-Component__content__card">
           <Slider {...settings} ref={sliderRef}>
@@ -94,7 +90,6 @@ const EmailVerified = () => {
         </div>
         : null
       }
-      <Alert {...alertProps} />
     </section>
   )
 }

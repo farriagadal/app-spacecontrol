@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext } from 'react'
 // services
 import AuthService from '../../services/auth.service'
@@ -30,20 +29,12 @@ const LoginForm = () => {
       console.log(data)
       const user = { token: data.token, ...data.user }
       authDispatch({ type: 'SET_USER', payload: user })
-      console.log('SET_USER', user)
       setTimeout(() => {
         mainDispatch({ type: 'SET_LOADING', payload: false })
         history.push('/rooms')
       }, 1000)
     } catch (err) {
-      if (err.data && err.data.error.emailInvalid) {
-        const email = err.data.user.email
-        setTimeout(() => {
-          mainDispatch({ type: 'SET_LOADING', payload: false })
-          history.push(`/send-email?email=${email}&send=true`)
-        }, 1000)
-        return
-      }
+      console.log(err)
       showAlert({ type: 'error', message: 'El email y/o contraseña están errones.' })
       mainDispatch({ type: 'SET_LOADING', payload: false })
     }
