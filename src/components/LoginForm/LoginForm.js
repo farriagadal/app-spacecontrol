@@ -36,7 +36,7 @@ const LoginForm = () => {
         history.push('/rooms')
       }, 1000)
     } catch (err) {
-      if (err.data && err.data.error && err.data.error.emailInvalid) {
+      if (err.data && err.data.error.emailInvalid) {
         const email = err.data.user.email
         setTimeout(() => {
           mainDispatch({ type: 'SET_LOADING', payload: false })
