@@ -12,8 +12,6 @@ import Profile from './views/Profile/Profile'
 import ConfirmEmail from './views/ConfirmEmail/ConfirmEmail'
 import EmailVerified from './views/EmailVerified/EmailVerified'
 import Rooms from './views/Rooms/Rooms'
-import RoomDetail from './views/RoomDetail/RoomDetail'
-
 import ComingSoon from './views/ComingSoon/ComingSoon'
 import Loader from './components/Loader/Loader'
 import Layout from './layout/Layout'
@@ -45,9 +43,8 @@ const App = () => {
                 <AuthContext.Consumer>
                   { ([state]) => state.isLogged
                     ? <Fragment>
-                      <RouteWrapper exact path="/profile" component={Profile} />
-                      <RouteWrapper exact path="/rooms" component={Rooms} />
-                      <RouteWrapper exact path="/rooms/:id" component={RoomDetail} />
+                      <RouteWrapper path="/profile" component={Profile} />
+                      <RouteWrapper path="/rooms" component={Rooms} />
                     </Fragment>
                     : <Login />
                   }
