@@ -16,11 +16,11 @@ import { IconButton } from '@material-ui/core'
 
 const AppHeader = props => {
   return (
-    <header className="AppHeader d-flex">
+    <header className="AppHeader flex">
       <Link to="/">
         <img className="logo" src={logo} alt="icon" />
       </Link>
-      <div className="d-flex ml-auto">
+      <div className="flex ml-auto">
         <IconButton className="icon" color="secondary" size="medium">
           <MenuIcon />
         </IconButton>

@@ -83,7 +83,7 @@ const RegisterForm = () => {
       <div className="form-inputs__agree">
         <InputCheckbox checked={acceptTerms} onChange={() => setAcceptTerms(!acceptTerms)} label={<p>I agree to all <Link to="/terms">Terms & Conditions</Link></p>} />
       </div>
-      {/* <button className="btn btn--primary w-100">Crear</button> */}
+      {/* <button className="btn btn--primary w-full">Crear</button> */}
       <Button disabled={!acceptTerms} onClick={() => handleSignUp()} variant="contained" color="primary">
         Continue
       </Button>

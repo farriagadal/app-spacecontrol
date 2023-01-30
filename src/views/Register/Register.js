@@ -21,14 +21,14 @@ const Register = () => {
               <p>OR</p>
               <span/>
             </div>
-            <button className="Register-Component__content__btn-google d-flex w-100">
+            <button className="Register-Component__content__btn-google flex w-full">
               <img src={googleIcon} alt="icon" />
               Sign up with Google
             </button>
           </div>
 
           <br />
-          {/* <button className="btn btn--primary w-100">Ingresar</button>
+          {/* <button className="btn btn--primary w-full">Ingresar</button>
           <p className="Register-Component__content__register-btn">¿No tienes una cuenta?
             <a href="/">Registrate!</a>
           </p> */}

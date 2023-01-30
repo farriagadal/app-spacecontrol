@@ -14,7 +14,7 @@ const Login = () => {
       <div className="Login-Component__content">
         <div className="Login-Component__content__card">
           <h1>Sign in</h1>
-          <button type="button" className="Login-Component__content__btn-google d-flex w-100">
+          <button type="button" className="Login-Component__content__btn-google flex w-full">
             <img src={googleIcon} alt="icon" />
             Sign in with Google
           </button>
