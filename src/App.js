@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React from 'react'
 import { Route, BrowserRouter } from 'react-router-dom'
 
 import { AnimatedSwitch } from 'react-router-transition'
@@ -18,23 +18,10 @@ import Layout from './layout/Layout'
 
 import './assets/scss/app.scss'
 
-import AuthService from './services/auth.service'
-
 import AuthContext from './context/authContext'
 import MainContext from './context/mainContext'
 
 const App = () => {
-  // eslint-disable-next-line no-unused-vars
-  // const [isLogged, setLogged] = useState(true)
-  // const data = await AuthService.verifySessionToken()
-  // console.log('verifySessionToken', data)
-
-  useEffect(() => {
-    AuthService.verifySessionToken().then((response) => {
-      console.log('response', response)
-    })
-  }, [])
-
   return (
     <MainContext.Provider>
       <AuthContext.Provider>
@@ -48,20 +35,11 @@ const App = () => {
                 className="switch-wrapper"
               >
                 <Route exact path="/" component={Login} />
-
-                <AuthContext.Context>
-                  { ([state]) => state.isLogged
-                    ? <Fragment>
-                      <RouteWrapper path="/profile" component={Profile} />
-                      <RouteWrapper path="/rooms" component={Rooms} />
-                    </Fragment>
-                    : <h1>NO AUTH</h1>
-                  }
-                </AuthContext.Context>
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/send-email" component={ConfirmEmail} />
                 <Route exact path="/verify-email" component={EmailVerified} />
-
+                <RouteWrapper path="/profile" component={Profile} />
+                <RouteWrapper path="/rooms" component={Rooms} />
                 <Route exact path="/coming-soon" component={ComingSoon} />
               </AnimatedSwitch>
             </div>

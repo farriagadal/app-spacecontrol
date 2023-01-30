@@ -40,20 +40,9 @@ const verifyEmail = (token) => new Promise((resolve, reject) => {
     })
 })
 
-const verifySessionToken = () => new Promise((resolve, reject) => {
-  api.get('/verify-session')
-    .then((response) => {
-      resolve(response.data)
-    })
-    .catch((err) => {
-      reject(err)
-    })
-})
-
 export default {
   signIn,
   signUp,
   resendEmail,
-  verifyEmail,
-  verifySessionToken
+  verifyEmail
 }

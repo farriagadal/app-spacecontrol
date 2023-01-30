@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useRef, useEffect, useContext, Fragment } from 'react'
+import React, { useRef, useEffect, useContext } from 'react'
 // services
 import useAlert from '../../hooks/useAlert'
 import AuthService from '../../services/auth.service'
@@ -52,7 +51,7 @@ const EmailVerified = () => {
     } catch (err) {
       console.log('verifyEmailToken err', err.response)
       showAlert({ type: 'error', message: 'Ha ocurrido un error, inténte más tarde' })
-      // history.push('/')
+      history.push('/')
     } finally {
       mainDispatch({ type: 'SET_LOADING', payload: false })
     }
@@ -64,38 +63,37 @@ const EmailVerified = () => {
 
   return (
     <section className="EmailVerified-Component">
-      <div className="EmailVerified-Component__content">
-        <div className="EmailVerified-Component__content__card">
-        <Slider {...settings} ref={sliderRef}>
-          <div className="EmailVerified-Component__content__slide">
-          { !mainState.isLoading
-            ? <Fragment>
-                <img src={emailIcon} alt="icon" className="m-auto" />
-                <h1>Email Verified successfully!</h1>
-                <p>Reprehenderit esse labore id veniam ut veniam non ex adipisicing amet ullamco dolor proident.</p>
-                <Button variant="contained" color="primary" onClick={() => goToNext()}>
-                  Continue
-                </Button>
-              </Fragment>
-            : null
-          }
-          </div>
-          <div className="EmailVerified-Component__content__slide">
-            <WorkspaceForm nextSlide={() => goToNext()} />
-          </div>
-          <div className="EmailVerified-Component__content__slide">
-            <img src={checkIcon} alt="icon" className="m-auto" />
-            <h1>Workspace created</h1>
-            <p>Reprehenderit esse labore id veniam ut veniam non ex adipisicing amet ullamco dolor proident.</p>
-            <Link to="/rooms">
-              <Button variant="contained" color="primary">
-                go to Rooms
+
+      { !mainState.isLoading
+        ? <div className="EmailVerified-Component__content">
+          <div className="EmailVerified-Component__content__card">
+          <Slider {...settings} ref={sliderRef}>
+            <div className="EmailVerified-Component__content__slide">
+              <img src={emailIcon} alt="icon" className="m-auto" />
+              <h1>Email Verified successfully!</h1>
+              <p>Reprehenderit esse labore id veniam ut veniam non ex adipisicing amet ullamco dolor proident.</p>
+              <Button variant="contained" color="primary" onClick={() => goToNext()}>
+                Continue
               </Button>
-            </Link>
+            </div>
+            <div className="EmailVerified-Component__content__slide">
+              <WorkspaceForm nextSlide={() => goToNext()} />
+            </div>
+            <div className="EmailVerified-Component__content__slide">
+              <img src={checkIcon} alt="icon" className="m-auto" />
+              <h1>Workspace created</h1>
+              <p>Reprehenderit esse labore id veniam ut veniam non ex adipisicing amet ullamco dolor proident.</p>
+              <Link to="/rooms">
+                <Button variant="contained" color="primary">
+                  go to Rooms
+                </Button>
+              </Link>
+            </div>
+          </Slider>
           </div>
-        </Slider>
         </div>
-      </div>
+        : null
+      }
       <Alert {...alertProps} />
     </section>
   )

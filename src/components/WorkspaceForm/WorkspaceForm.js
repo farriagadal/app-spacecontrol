@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext } from 'react'
 // services
 import WorkspaceService from '../../services/workspace.service'
@@ -28,6 +27,7 @@ const WorkspaceForm = (props) => {
         console.log(err)
         showAlert({ type: 'error', message: 'Ha ocurrido un error, inténte más tarde' })
       }
+
       setTimeout(() => { // TODO: change
         mainDispatch({ type: 'SET_LOADING', payload: false })
         props.nextSlide()
