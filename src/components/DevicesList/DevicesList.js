@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Button from '@material-ui/core/Button'
-import LinkIcon from '@material-ui/icons/Link'
 
 import './DevicesList.scss'
 
@@ -29,14 +28,7 @@ const DevicesList = (props) => {
 
   return (
     <div className="DevicesList container">
-      <div className="d-flex align-items-center">
-        <h2>Dispositivos</h2>
-        <Button className="ml-auto rounded-pill py-2 px-4 border-2" variant="outlined">
-          <LinkIcon className="mr-1"/>
-          <b>¿Como Enlanzar?</b>
-        </Button>
-      </div>
-
+      <h2>Dispositivos</h2>
       <div className="DevicesList__list">
         <div className="DevicesList__list__label">
             <p>Nombre dispositivo</p>
