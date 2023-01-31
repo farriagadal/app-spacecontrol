@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export default axios.create({
-  baseURL: 'https://dev.spacecontrol.app/api'
+  baseURL: 'https://api.spacecontrol.app/api'
   // baseURL: 'https://13.58.222.181:3000/api'
   // baseURL: 'http://127.0.0.1:3000/api',
 })
