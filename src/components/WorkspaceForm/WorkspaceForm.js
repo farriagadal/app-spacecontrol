@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 // services
 import WorkspaceService from '../../services/workspace.service'
 // hooks
@@ -10,16 +10,13 @@ import InputText from '../../components/InputText/InputText'
 import Button from '@material-ui/core/Button'
 // styles
 import './WorkspaceForm.scss'
-import MainContext from '../../context/mainContext'
 
 const WorkspaceForm = (props) => {
-  const [, mainDispatch] = useContext(MainContext.Context)
   const workspace = useInputValue('')
   const { showAlert, alertProps } = useAlert()
 
   const handleSignIn = async () => {
     if (workspace.value) {
-      mainDispatch({ type: 'SET_LOADING', payload: true })
       try {
         const res = await WorkspaceService.createWorkspace({ workspace: workspace.value })
         console.log(res)
@@ -27,11 +24,7 @@ const WorkspaceForm = (props) => {
         console.log(err)
         showAlert({ type: 'error', message: 'Ha ocurrido un error, inténte más tarde' })
       }
-
-      setTimeout(() => { // TODO: change
-        mainDispatch({ type: 'SET_LOADING', payload: false })
-        props.nextSlide()
-      }, 1000)
+      props.nextSlide() // TODO: change
     }
   }
 

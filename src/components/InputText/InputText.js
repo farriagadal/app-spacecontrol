@@ -1,15 +1,16 @@
-/* eslint-disable */
 import React from 'react'
 
 import './InputText.scss'
 
-const InputText = ({ value, type, label, styleClass, error }) => {
-  const classes = error ? 'error' : '';
+const InputText = (props) => {
+  const {
+    value, type, label, styleClass
+  } = props
+
   return (
-    <div className={'InputText ' + classes }>
+    <div className="InputText">
       <div className="InputText__label">{ label }</div>
       <input {...value} type={type} className={styleClass} />
-      { error ? <small className="InputText__error-label">{ error.message }</small> : null }
     </div>
   )
 }

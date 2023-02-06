@@ -1,6 +1,5 @@
 .InputText {
-  margin-bottom: 25px;
-  position: relative;
+  margin-bottom: 20px;
 
   &__label {
     font-size: 14px;
@@ -39,21 +38,5 @@
       border-color: var(--primary);
       outline: none;
     }
-  }
-
-  &.error {
-    input {
-      border-color: red;
-    }
-  }
-
-  &__error-label {
-    position: absolute;
-    width: 100%;
-    right: 0;
-    bottom: 0;
-    transform: translateY(calc(100% + 5px));
-    color: red;
-    text-align: right;
   }
 }
