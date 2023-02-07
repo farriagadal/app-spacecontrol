@@ -12,40 +12,35 @@ import Profile from './views/Profile/Profile'
 import ConfirmEmail from './views/ConfirmEmail/ConfirmEmail'
 import EmailVerified from './views/EmailVerified/EmailVerified'
 import Rooms from './views/Rooms/Rooms'
-import Loader from './components/Loader/Loader'
 import Layout from './layout/Layout'
 
 import './assets/scss/app.scss'
 
 import AuthContext from './context/authContext'
-import MainContext from './context/mainContext'
 
 const App = () => {
   return (
-    <MainContext.Provider>
-      <AuthContext.Provider>
-        <BrowserRouter>
-          <ThemeProvider theme={theme}>
-            <div className="App">
-              <AnimatedSwitch
-                atEnter={{ opacity: 0 }}
-                atLeave={{ opacity: 0 }}
-                atActive={{ opacity: 1 }}
-                className="switch-wrapper"
-              >
-                <Route exact path="/" component={Login} />
-                <Route exact path="/register" component={Register} />
-                <Route exact path="/confirm-email" component={ConfirmEmail} />
-                <Route exact path="/verify-email" component={EmailVerified} />
-                <RouteWrapper path="/profile" component={Profile} />
-                <RouteWrapper path="/rooms" component={Rooms} />
-              </AnimatedSwitch>
-            </div>
-            <Loader />
-          </ThemeProvider>
-        </BrowserRouter>
-      </AuthContext.Provider>
-    </MainContext.Provider>
+    <AuthContext.Provider>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <div className="App">
+            <AnimatedSwitch
+              atEnter={{ opacity: 0 }}
+              atLeave={{ opacity: 0 }}
+              atActive={{ opacity: 1 }}
+              className="switch-wrapper"
+            >
+              <Route exact path="/" component={Login} />
+              <Route exact path="/register" component={Register} />
+              <Route exact path="/confirm-email" component={ConfirmEmail} />
+              <Route exact path="/verify-email" component={EmailVerified} />
+              <RouteWrapper path="/profile" component={Profile} />
+              <RouteWrapper path="/rooms" component={Rooms} />
+            </AnimatedSwitch>
+          </div>
+        </ThemeProvider>
+      </BrowserRouter>
+    </AuthContext.Provider>
   )
 }
 
