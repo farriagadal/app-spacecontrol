@@ -10,25 +10,22 @@ import Alert from '../../components/Alert/Alert'
 import InputText from '../../components/InputText/InputText'
 import Button from '@material-ui/core/Button'
 // context
-import AuthContext from '../../context/authContext'
+import { Context } from '../../context/authContext'
 
-const LoginForm = () => {
-  const [state, dispatch] = useContext(AuthContext.Context)
+const LoginForm = (props) => {
+  const [state, dispatch] = useContext(Context)
   const history = useHistory()
   const email = useInputValue('')
   const password = useInputValue('')
   const { showAlert, alertProps } = useAlert()
 
   const handleSignIn = async () => {
-    if (!email.value || !password.value) return
+    if (email.value && password.value) return
     try {
       const data = await AuthService.signIn({ email: email.value, password: password.value })
       console.log(data)
       dispatch({ type: 'SET_USER', payload: data.user })
-      console.log('state1', state)
-      setTimeout(() => {
-        console.log('state2', state)
-      }, 1000)
+      console.log('state', state)
       history.push('/')
     } catch (err) {
       console.log(err)
