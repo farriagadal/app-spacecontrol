@@ -1,24 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 // services
 import AuthService from '../../services/auth.service'
 // hooks
 import useInputValue from '../../hooks/useInputValue'
-import useAlert from '../../hooks/useAlert'
 import { Link, useHistory } from 'react-router-dom'
 // components
-import Alert from '../../components/Alert/Alert'
 import InputText from '../InputText/InputText'
 import Button from '@material-ui/core/Button'
+import Snackbar from '@material-ui/core/Snackbar'
+import MuiAlert from '@material-ui/lab/Alert'
 import InputCheckbox from '../../components/InputCheckbox/InputCheckbox'
 
-const LoginForm = () => {
-  const { showAlert, alertProps } = useAlert()
+const Alert = (props) => {
+  return <MuiAlert variant="filled" {...props} />
+}
+
+const LoginForm = (props) => {
   const history = useHistory()
   const firstName = useInputValue('')
   const lastName = useInputValue('')
   const email = useInputValue('')
   const password = useInputValue('')
   const passwordConfirm = useInputValue('')
+
+  const [openAlert, setOpenAlert] = useState(false)
+  const [alertMessage, setAlertMessage] = useState({
+    type: '',
+    message: ''
+  })
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+    setOpenAlert(false)
+  }
 
   const handleSignUp = async () => {
     try {
@@ -33,7 +48,13 @@ const LoginForm = () => {
       history.push('/register?step=2')
     } catch (err) {
       console.log('err', err)
-      showAlert({ type: 'error', message: 'Ha ocurrido un error, inténte más tarde' })
+      setAlertMessage(
+        {
+          message: 'Ha ocurrido un error, inténtelo más tarde.',
+          type: 'error'
+        }
+      )
+      setOpenAlert(true)
     }
   }
 
@@ -51,7 +72,11 @@ const LoginForm = () => {
       <Button onClick={() => handleSignUp()} variant="contained" color="primary">
         Crear
       </Button>
-      <Alert {...alertProps} />
+      <Snackbar open={openAlert} autoHideDuration={3000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity={alertMessage.type}>
+          { alertMessage.message }
+        </Alert>
+      </Snackbar>
     </div>
   )
 }

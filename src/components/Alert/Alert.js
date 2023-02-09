@@ -8,7 +8,14 @@ const AlertContent = (props) => {
   return <MuiAlert variant="filled" {...props} />
 }
 
-const Alert = ({ openAlert, alertOptions, handleClose }) => {
+const Alert = ({ openAlert, alertOptions, setOpenAlert }) => {
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+    setOpenAlert(false)
+  }
+
   return (
     openAlert
       ? ReactDOM.createPortal(
