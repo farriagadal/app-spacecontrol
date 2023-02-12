@@ -24,7 +24,7 @@ const App = () => {
     <div className="App">
       <TransitionGroup>
         <CSSTransition
-          timeout={300}
+          timeout={250}
           classNames='fade'
           key={location.key}
         >
