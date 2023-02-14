@@ -17,16 +17,18 @@ const Alert = (props) => {
 const LoginForm = () => {
   const email = useInputValue('')
   const password = useInputValue('')
-  const [openAlert, setOpenAlert] = useState(false)
+  const [open, setOpen] = useState(false)
   const [alertMessage, setAlertMessage] = useState({
     type: '',
     message: ''
   })
+  const [alertType, setAlertType] = useState('success')
+
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return
     }
-    setOpenAlert(false)
+    setOpen(false)
   }
 
   const handleSignIn = async () => {
@@ -34,22 +36,24 @@ const LoginForm = () => {
       try {
         const res = await AuthService.signIn({ email: email.value, password: password.value })
         console.log(res)
-        setOpenAlert(true)
-        setAlertMessage(
-          {
-            message: 'Good',
-            type: 'success'
-          }
-        )
-        setOpenAlert(true)
+        console.log(email.value)
+        console.log(password.value)
+        setOpen(true)
+        console.log('open', open)
       } catch (err) {
+        setOpen(false)
+        console.log(err)
+        setAlertType('error')
         setAlertMessage(
+          ...alertMessage,
           {
             message: 'El email y/o contraseña están errones.',
             type: 'error'
           }
         )
-        setOpenAlert(true)
+        setTimeout(() => {
+          setOpen(true)
+        }, 3000)
       }
     }
   }
@@ -66,8 +70,8 @@ const LoginForm = () => {
         ¿No tienes una cuenta?
         <Link to="/register">Registrate!</Link>
       </p>
-      <Snackbar open={openAlert} autoHideDuration={3000} onClose={handleClose}>
-      <Alert onClose={handleClose} severity={alertMessage.type}>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+      <Alert onClose={handleClose} severity={alertType}>
         { alertMessage.message }
       </Alert>
       </Snackbar>
