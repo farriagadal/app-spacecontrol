@@ -5,9 +5,6 @@ const signIn = (payload) => new Promise((resolve) => {
     .then((response) => {
       resolve(response.data)
     })
-    .catch((err) => {
-      resolve(err)
-    })
 })
 
 export default {

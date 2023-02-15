@@ -1,15 +1,36 @@
 import React from 'react'
 // components
 import { Link } from 'react-router-dom'
-import LoginForm from '../../components/LoginForm/LoginForm'
+import Button from '@material-ui/core/Button'
+// hooks
+import useInputValue from '../../hooks/useInputValue'
+// services
+import AuthService from '../../services/auth.service'
 // icons
 import googleIcon from '../../assets/icons/google-icon.svg'
 import logo from '../../assets/icons/logo-white.svg'
 import shapeIcon from '../../assets/icons/bg-shape.svg'
+import InputText from '../../components/InputText/InputText'
 
 import './Login.scss'
 
 const Login = () => {
+  const email = useInputValue('')
+  const password = useInputValue('')
+
+  const handleSignIn = async () => {
+    if (email && password) {
+      try {
+        const res = await AuthService.signIn({ email: email.value, password: password.value })
+        console.log(res)
+        console.log(email.value)
+        console.log(password.value)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+  }
+
   return (
     <section className="Login-Component">
       <div className="Login-Component__sidebar">
@@ -37,7 +58,16 @@ const Login = () => {
             <p>OR</p>
             <span />
           </div>
-          <LoginForm />
+          <InputText value={email} label="Your Email" type="text" />
+          <InputText value={password} label="Password" type="password" />
+          <br />
+          <Button onClick={() => handleSignIn()} variant="contained" color="primary" className="w-full">
+            Ingresar
+          </Button>
+          <p className="Login-Component__content__register-btn">
+            ¿No tienes una cuenta?
+            <Link to="/register">Registrate!</Link>
+          </p>
         </div>
       </div>
     </section>
