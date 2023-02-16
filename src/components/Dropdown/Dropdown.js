@@ -1,15 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react'
+/* eslint-disable */
+import React, { useState, useEffect, useRef } from "react";
 
-import './Dropdown.scss'
+import './Dropdown.scss';
 
 const Dropdown = props => {
   const [isActive, setActive] = useState(false)
-  const dropdownAreaRef = useRef(null)
+  const dropdownAreaRef = useRef(null);
 
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside)
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClickOutside)
+      document.removeEventListener("click", handleClickOutside);
     }
   }, [])
 
@@ -22,8 +23,8 @@ const Dropdown = props => {
   }
 
   return (
-    <div className='Dropdown' ref={dropdownAreaRef} >
-      <div onClick={() => setActive(!isActive)} className='Dropdown__label'>
+    <div className="Dropdown" ref={dropdownAreaRef} >
+      <div onClick={() => setActive(!isActive)} className="Dropdown__label">
         <span>{props.label}</span>
       </div>
       { isActive
@@ -31,7 +32,7 @@ const Dropdown = props => {
         : null
       }
     </div>
-  )
-}
+  );
+};
 
-export default Dropdown
+export default Dropdown;

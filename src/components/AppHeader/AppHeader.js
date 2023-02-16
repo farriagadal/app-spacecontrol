@@ -1,18 +1,19 @@
-import React from 'react'
+/* eslint-disable */
+import React from 'react';
 
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-import logo from '../../assets/icons/logo-black.svg'
+import logo from '../../assets/icons/logo-black.svg';
 
-import MenuIcon from '@material-ui/icons/Menu'
-import NotificationsIcon from '@material-ui/icons/NotificationsOutlined'
-import PersonIcon from '@material-ui/icons/Person'
+import MenuIcon from '@material-ui/icons/Menu';
+import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
+import PersonIcon from '@material-ui/icons/Person';
 
 import Dropdown from '../Dropdown/Dropdown'
 
-import './AppHeader.scss'
+import './AppHeader.scss';
 
-import { IconButton } from '@material-ui/core'
+import { Avatar, IconButton } from '@material-ui/core';
 
 const AppHeader = props => {
   return (
@@ -52,7 +53,7 @@ const AppHeader = props => {
         </Dropdown>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default AppHeader
+export default AppHeader;

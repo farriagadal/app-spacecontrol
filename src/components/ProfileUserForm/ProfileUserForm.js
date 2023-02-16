@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 
-import InputText from '../../components/InputText/InputText'
+import InputText from '../../components/InputText/InputText.jsx'
 import Button from '@material-ui/core/Button';
 
 import './ProfileUserForm.scss'

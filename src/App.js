@@ -1,16 +1,16 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import { ThemeProvider } from '@material-ui/core'
-import theme from './theme'
+import { ThemeProvider } from '@material-ui/core';
+import theme from './theme';
 
-import Login from './views/Login/Login'
-import Register from './views/Register/Register'
-import Profile from './views/Profile/Profile'
-import Rooms from './views/Rooms/Rooms'
-import Layout from './layout/Layout'
+import Login from './views/Login/Login.jsx';
+import Register from './views/Register/Register';
+import Profile from './views/Profile/Profile';
+import Rooms from './views/Rooms/Rooms';
+import Layout from './layout/Layout';
 
-import './assets/scss/app.scss'
+import './assets/scss/app.scss';
 
 const App = () => (
   // eslint-disable-next-line react/jsx-filename-extension
@@ -24,7 +24,7 @@ const App = () => (
       </Switch>
     </div>
   </ThemeProvider>
-)
+);
 
 const RouteWrapper = ({
   component: Component,
@@ -38,6 +38,6 @@ const RouteWrapper = ({
       </Layout>
     )}
   />
-)
+);
 
-export default App
+export default App;
