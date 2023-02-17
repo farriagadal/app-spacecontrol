@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 
 import InputText from '../../components/InputText/InputText.jsx'

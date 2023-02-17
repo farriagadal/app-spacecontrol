@@ -1,4 +1,3 @@
-/* eslint-disable */
 import { Fragment } from "react"
 
 import AppFooter from '../components/AppFooter/AppFooter';

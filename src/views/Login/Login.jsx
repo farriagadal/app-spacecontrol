@@ -21,14 +21,10 @@ const Login = () => {
 
   const handleSignIn = async () => {
     if (email && password) {
-      try {
-        const res = await AuthService.signIn({ email: email.value, password: password.value });
-        console.log(res);
-        console.log(email.value);
-        console.log(password.value);
-      } catch (err) {
-        console.log(err);
-      }
+      const res = await AuthService.signIn({ email: email.value, password: password.value });
+      console.log(res);
+      console.log(email.value);
+      console.log(password.value);
     }
   };
 
