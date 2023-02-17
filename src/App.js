@@ -6,7 +6,6 @@ import theme from './theme'
 import Login from './views/Login/Login';
 import Register from './views/Register/Register';
 import Profile from './views/Profile/Profile';
-import Rooms from './views/Rooms/Rooms';
 
 import Layout from './layout/Layout';
 
@@ -20,7 +19,6 @@ function App() {
           <Route exact path="/" component={Login} />
           <Route exact path="/register" component={Register} />
           <RouteWrapper path="/profile" component={Profile} />
-          <RouteWrapper path="/rooms" component={Rooms} />
         </Switch>
       </div>
     </ThemeProvider>

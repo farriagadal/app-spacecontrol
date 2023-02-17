@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
-import logo from '../../assets/icons/logo-black.svg';
+import logo from '../../assets/icons/logo-white.svg';
 
 import MenuIcon from '@material-ui/icons/Menu';
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined';
@@ -17,9 +17,6 @@ import { Avatar, IconButton } from '@material-ui/core';
 const AppHeader = props => {
   return (
     <header className="AppHeader flex">
-      <Link to="/">
-        <img className="logo" src={logo} alt="icon" />
-      </Link>
       <div className="flex ml-auto">
         <IconButton className="icon" color="secondary" size="medium">
           <MenuIcon />
