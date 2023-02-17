@@ -1,6 +1,6 @@
 import React from 'react';
 
-import InputText from '../../components/InputText/InputText.jsx'
+import InputText from '../../components/InputText/InputText'
 import Button from '@material-ui/core/Button';
 
 import './ProfileUserForm.scss'

@@ -7,7 +7,7 @@ import googleIcon from '../../assets/icons/google-icon.svg';
 import logo from '../../assets/icons/logo-white.svg';
 import shapeIcon from '../../assets/icons/bg-shape.svg';
 
-import InputText from '../../components/InputText/InputText.jsx'
+import InputText from '../../components/InputText/InputText'
 import InputCheckbox from '../../components/InputCheckbox/InputCheckbox';
 
 import Button from '@material-ui/core/Button';

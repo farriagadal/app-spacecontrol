@@ -1,18 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-import './InputText.scss'
+import './InputText.scss';
 
-const InputText = (props) => {
-  const {
-    value, type, label, styleClass
-  } = props
-
+const InputText = props => {
   return (
     <div className="InputText">
-      <div className="InputText__label">{ label }</div>
-      <input {...value} type={type} className={styleClass} />
+      <div className="InputText__label">{ props.label }</div>
+      <input type={ props.type } className={ props.styleClass }/>
     </div>
-  )
-}
+  );
+};
 
-export default InputText
+export default InputText;
