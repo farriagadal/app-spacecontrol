@@ -7,7 +7,7 @@ import './InputCheckbox.scss';
 const InputCheckbox = props => {
   return (
     <div className="InputCheckbox">
-      <FormControlLabel control={<Checkbox color="primary" name="checkedC" />} label={props.label} />
+      <FormControlLabel control={<Checkbox name="checkedC" />} label={props.label} />
     </div>
   );
 };

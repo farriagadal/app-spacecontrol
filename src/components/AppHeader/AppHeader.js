@@ -24,28 +24,12 @@ const AppHeader = props => {
         <IconButton className="icon" color="secondary" size="medium">
           <NotificationsIcon />
         </IconButton>
-        <Dropdown align="right" width={300} label={
+        <Dropdown label={
           <IconButton color="secondary" size="medium">
             <PersonIcon />
           </IconButton>
         }>
-          <div className="dropdown-user">
-            <div className="dropdown-user__label">
-              <div className="dropdown-user__label__icon">
-                <IconButton color="secondary" size="medium">
-                  <PersonIcon />
-                </IconButton>
-              </div>
-              <div className="dropdown-user__label__info">
-                <p><b>Fernando Arriagada</b></p>
-                <p>farriagadal@gmail.com</p>
-              </div>
-            </div>
-            <div className="dropdown-user__actions">
-              <button className="dropdown-user__actions__option">Ver Cuenta</button>
-              <button className="dropdown-user__actions__option">Cerrar Sesión</button>
-            </div>
-          </div>
+          popop
         </Dropdown>
       </div>
     </header>
