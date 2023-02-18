@@ -9,10 +9,10 @@ const ProfileUserForm = props => {
   return (
     <div className="ProfileUserForm">
       <div className="form-inputs">
-        <InputText styleClass="white-bg" label='Your Email' type='text' />
-        <InputText styleClass="white-bg" label='Password' type='password' />
-        <InputText styleClass="white-bg" label='Your Email' type='text' />
-        <InputText styleClass="white-bg" label='Password' type='password' />
+        <InputText label='Your Email' type='text' />
+        <InputText label='Password' type='password' />
+        <InputText label='Your Email' type='text' />
+        <InputText label='Password' type='password' />
         <Button variant="contained" color="primary">
           Guardar Cambios
         </Button>

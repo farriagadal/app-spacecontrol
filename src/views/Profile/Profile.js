@@ -75,9 +75,9 @@ const ScrollableTabsButtonAuto = () => {
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"
         >
-          <Tab label="Editar Perfil" {...a11yProps(0)} />
-          <Tab label="Contraseña" {...a11yProps(1)} />
-          <Tab label="Premium" disabled {...a11yProps(2)} />
+          <Tab label="Datos Personales" {...a11yProps(0)} />
+          <Tab label="Seguridad" {...a11yProps(1)} />
+          <Tab label="Premium" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
@@ -97,7 +97,7 @@ const Profile = props => {
   const urlImage = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.overstockart.com%2Foptimized%2Fcache%2Fdata%2Fproduct_images%2FLDV1497-1000x1000.jpg&f=1&nofb=1" 
   return (
     <div className="Profile container">
-      <h2 className="Profile__title">Account</h2>
+      <h3>My Accout</h3>
       <div className="Profile__card">
         <div className="Profile__card__avatar">
           <span style={{

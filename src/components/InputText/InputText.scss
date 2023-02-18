@@ -19,15 +19,6 @@
     color: #050505;
     transition: all 0.3s;
     border: solid 1px transparent;
-   
-    &.white-bg {
-      background: #fff;
-      border-color: #efefef;
-
-      &:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0px 1000px #fff inset;
-      }
-    }
 
     &:-webkit-autofill {
       -webkit-text-fill-color: #050505;

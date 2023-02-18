@@ -25,21 +25,12 @@ const theme = createMuiTheme({
       containedPrimary: {
         height: 47,
         fontWeight: 'bold',
-        fontSize: 16,
-        letterSpacing: 0
+        fontSize: 16
       }
     },
     MuiAppBar: {
       colorDefault: {
         backgroundColor: '#fff',
-      }
-    },
-    MuiIconButton: {
-      colorSecondary: {
-        backgroundColor: '#24818110',
-        '&:hover': {
-          backgroundColor: "#24818150",
-       }
       }
     }
   },
