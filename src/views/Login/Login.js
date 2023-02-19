@@ -1,7 +1,7 @@
 import React from 'react';
 
 import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
-import InputText from '@/components/InputText/InputText'
+import InputText from '../../components/InputText/InputText'
 
 import './Login.scss';
 
@@ -13,8 +13,6 @@ const Login = props => {
         <div className="Login-Component__content__card">
           <AccessAlarmIcon />
           <h1>Login</h1>
-
-          <hr />
           <InputText label='Email' type='text' />
           <InputText label='Password' type='password' />
           <button>Ingresar</button>
