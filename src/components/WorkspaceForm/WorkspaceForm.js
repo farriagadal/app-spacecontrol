@@ -27,6 +27,7 @@ const WorkspaceForm = (props) => {
         console.log(err)
         showAlert({ type: 'error', message: 'Ha ocurrido un error, inténte más tarde' })
       }
+
       setTimeout(() => { // TODO: change
         mainDispatch({ type: 'SET_LOADING', payload: false })
         props.nextSlide()
@@ -41,7 +42,7 @@ const WorkspaceForm = (props) => {
         <p>Reprehenderit esse labore id veniam ut veniam non ex.</p>
         <InputText value={workspace} type="text" />
         <br />
-        <Button onClick={() => handleSignIn()} variant="contained" color="primary" className="w-100">
+        <Button onClick={() => handleSignIn()} variant="contained" color="primary" className="w-full">
           Continue
         </Button>
       </div>

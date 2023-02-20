@@ -1,18 +1,17 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext } from 'react'
 // services
 import AuthService from '../../services/auth.service'
 // hooks
 import useAlert from '../../hooks/useAlert'
 import useInputValue from '../../hooks/useInputValue'
-import { useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 // components
 import Alert from '../../components/Alert/Alert'
 import InputText from '../../components/InputText/InputText'
 import Button from '@material-ui/core/Button'
 // context
-import MainContext from '../../context/mainContext'
 import AuthContext from '../../context/authContext'
+import MainContext from '../../context/mainContext'
 
 const LoginForm = () => {
   const [, authDispatch] = useContext(AuthContext.Context)
@@ -27,6 +26,7 @@ const LoginForm = () => {
     mainDispatch({ type: 'SET_LOADING', payload: true })
     try {
       const data = await AuthService.signIn({ email: email.value, password: password.value })
+      console.log(data)
       const user = { token: data.token, ...data.user }
       authDispatch({ type: 'SET_USER', payload: user })
       setTimeout(() => {
@@ -34,14 +34,7 @@ const LoginForm = () => {
         history.push('/rooms')
       }, 1000)
     } catch (err) {
-      if (err.data && err.data.error && err.data.error.emailInvalid) {
-        const email = err.data.user.email
-        setTimeout(() => {
-          mainDispatch({ type: 'SET_LOADING', payload: false })
-          history.push(`/send-email?email=${email}&send=true`)
-        }, 1000)
-        return
-      }
+      console.log(err)
       showAlert({ type: 'error', message: 'El email y/o contraseña están errones.' })
       mainDispatch({ type: 'SET_LOADING', payload: false })
     }
@@ -58,10 +51,14 @@ const LoginForm = () => {
         onClick={() => handleSignIn()}
         variant="contained"
         color="primary"
-        className="w-100"
+        className="w-full"
       >
         Log in
       </Button>
+      <p className="Login-Component__content__register-btn">
+        ¿No tienes una cuenta?
+        <Link to="/register">Registrate!</Link>
+      </p>
       <Alert {...alertProps} />
     </div>
   )

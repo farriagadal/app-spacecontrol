@@ -1,21 +1,19 @@
 import React, { useState, useContext } from 'react'
-
+// services
 import AuthService from '../../services/auth.service'
-
+// hooks
 import useInputValue from '../../hooks/useInputValue'
 import useAlert from '../../hooks/useAlert'
 import { Link, useHistory } from 'react-router-dom'
-
+// components
 import Alert from '../../components/Alert/Alert'
 import InputText from '../InputText/InputText'
 import Button from '@material-ui/core/Button'
 import InputCheckbox from '../../components/InputCheckbox/InputCheckbox'
-
+// others
 import Validator from 'fastest-validator'
-
+// context
 import MainContext from '../../context/mainContext'
-
-import styles from './RegisterForm.module.scss'
 
 const userSchema = {
   firstName: { type: 'string', optional: false, max: '100' },
@@ -62,7 +60,7 @@ const RegisterForm = () => {
       console.log(res)
       setTimeout(() => {
         mainDispatch({ type: 'SET_LOADING', payload: false })
-        history.push('/send-email')
+        history.push('/confirm-email')
       }, 1000)
     } catch (err) {
       console.log('err', err)
@@ -72,7 +70,7 @@ const RegisterForm = () => {
   }
 
   return (
-    <div className={styles.form}>
+    <div className="RegisterForm-Component form-inputs">
       <InputText value={firstName} error={formErrors.find(v => v.field === 'firstName')} label='First Name' type='text' />
       <InputText value={lastName} error={formErrors.find(v => v.field === 'lastName')} label='Last Name' type='text' />
       <InputText value={email} error={formErrors.find(v => v.field === 'email')} label='Your Email' type='text' />
@@ -82,10 +80,10 @@ const RegisterForm = () => {
         error={formErrors.find(v => v.field === 'confirmPassword')}
         label='Confirm Password' type='password'
       />
-      <div className={styles.agree}>
+      <div className="form-inputs__agree">
         <InputCheckbox checked={acceptTerms} onChange={() => setAcceptTerms(!acceptTerms)} label={<p>I agree to all <Link to="/terms">Terms & Conditions</Link></p>} />
       </div>
-      {/* <button className="btn btn--primary w-100">Crear</button> */}
+      {/* <button className="btn btn--primary w-full">Crear</button> */}
       <Button disabled={!acceptTerms} onClick={() => handleSignUp()} variant="contained" color="primary">
         Continue
       </Button>

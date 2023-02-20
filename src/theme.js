@@ -1,7 +1,7 @@
 /* eslint-disable */
-import { createTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles';
 
-const theme = createTheme({
+const theme = createMuiTheme({
   typography: {
     button: {
       textTransform: 'capitalize',

@@ -1,0 +1,43 @@
+.Rooms {
+  padding: 30px 0 150px 0;
+
+  &__list {
+    display: block;
+
+    &__label {
+      display: grid;
+      padding: 0 20px;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      margin: 10px 0;
+
+      p {
+        font-size: 12px;
+        line-height: 23px;
+        text-transform: uppercase;
+        color: #8f8f8f;
+        font-weight: 500;
+      }
+    }
+
+    &__item {
+      background: #f9f9f9;
+      border-radius: 5px;
+      box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      height: 80px;
+      padding: 0 20px;
+      // display: flex;
+      align-items: center;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+
+      // p {
+      //   text-align: center;
+      // }
+
+      a, button {
+        justify-self: right;
+      }
+    }
+  }
+}

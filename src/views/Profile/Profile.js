@@ -1,21 +1,22 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+/* eslint-disable */
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { makeStyles } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles';
 
-import AppBar from '@material-ui/core/AppBar'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
-import Box from '@material-ui/core/Box'
-import Typography from '@material-ui/core/Typography'
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 
-import ProfileUserForm from 'src/components/ProfileUserForm/ProfileUserForm'
-import ProfileSegurity from 'src/components/ProfileSegurity/ProfileSegurity'
+import ProfileUserForm from '../../components/ProfileUserForm/ProfileUserForm';
+import ProfileSegurity from '../../components/ProfileSegurity/ProfileSegurity';
 
-import styles from './Profile.module.scss'
+import './Profile.scss'
 
-const TabPanel = (props) => {
-  const { children, value, index, ...other } = props
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
 
   return (
     <div
@@ -31,37 +32,37 @@ const TabPanel = (props) => {
         </Box>
       )}
     </div>
-  )
+  );
 }
 
 TabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.any.isRequired,
-  value: PropTypes.any.isRequired
-}
+  value: PropTypes.any.isRequired,
+};
 
-const a11yProps = (index) => {
+function a11yProps(index) {
   return {
     id: `scrollable-auto-tab-${index}`,
-    'aria-controls': `scrollable-auto-tabpanel-${index}`
-  }
+    'aria-controls': `scrollable-auto-tabpanel-${index}`,
+  };
 }
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     width: '100%',
-    backgroundColor: theme.palette.background.paper
-  }
-}))
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
 
 const ScrollableTabsButtonAuto = () => {
-  const classes = useStyles()
-  const [value, setValue] = React.useState(0)
+  const classes = useStyles();
+  const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue)
-  }
+    setValue(newValue);
+  };
 
   return (
     <div className={classes.root}>
@@ -90,22 +91,22 @@ const ScrollableTabsButtonAuto = () => {
         Item Three
       </TabPanel>
     </div>
-  )
+  );
 }
 
-const Profile = () => {
-  const urlImage = 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.overstockart.com%2Foptimized%2Fcache%2Fdata%2Fproduct_images%2FLDV1497-1000x1000.jpg&f=1&nofb=1'
+const Profile = props => {
+  const urlImage = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.overstockart.com%2Foptimized%2Fcache%2Fdata%2Fproduct_images%2FLDV1497-1000x1000.jpg&f=1&nofb=1" 
   return (
-    <div className={`${styles.main} container`}>
-      <h2 className={styles.title}>Account</h2>
-      <div className={styles.card}>
-        <div className={styles.avatar}>
+    <div className="Profile container">
+      <h2 className="Profile__title">Account</h2>
+      <div className="Profile__card">
+        <div className="Profile__card__avatar">
           <span style={{
-            backgroundImage: `url(${urlImage})`
-          }}
+              backgroundImage: `url(${urlImage})` 
+            }}
           ></span>
         </div>
-        <div className={styles.tabs}>
+        <div className="Profile__card__tabs">
           <ScrollableTabsButtonAuto />
         </div>
       </div>
@@ -113,4 +114,4 @@ const Profile = () => {
   )
 }
 
-export default Profile
+export default Profile;

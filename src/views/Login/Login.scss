@@ -2,20 +2,75 @@
   display: flex;
   min-height: 100vh;
 
-  &__sidebar {
-    background: #000;
-    width: 40%;
-  }
-
   &__content {
     display: flex;
     justify-content: center;
-    padding-top: 100px;
-    width: 60%;
+    // padding-top: 100px;
+    padding: 100px 0;
+    // width: 70%;
+    width: stretch;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
 
     &__card {
       width: 312px;
-      outline: solid 1px #ccc;
+
+      h1 {
+        margin-bottom: 56px;
+        font-size: 29px;
+        text-align: center;
+      }
+    }
+
+    &__btn-google {
+      font-weight: 700;
+      font-size: 16px;
+      height: 45px;
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background: #F5F7FF;
+      border-radius: 4px;
+      
+      img {
+        width: 20px;
+        margin-right: 10px;
+      }
+    }
+
+    &__register-btn {
+      display: flex;
+      font-size: 14px;
+      margin-top: 40px;
+      justify-content: center;
+
+      a {
+        margin-left: 10px;
+      }
+    }
+
+    &__divider {
+      display: flex;
+      align-items: center;
+      margin: 25px 0;
+
+      p {
+        margin: 0 10px;
+        font-size: 13px;
+      }
+
+      span {
+        width: 50%;
+        background: black;
+        height: 1px;
+        opacity: 0.1;
+      }
     }
   }
+  
+
 }

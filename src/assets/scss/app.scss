@@ -1,7 +1,7 @@
 @import "grid";
+@import "utils";
 @import "fonts";
 @import "buttons";
-@import "bootstrap-utils";
 
 
 :root {
@@ -25,7 +25,8 @@ code {
     monospace;
 }
 
-#App {
+
+.App {
   background: #fff;
 }
 
@@ -34,12 +35,18 @@ button, a {
   outline: none;
 }
 
-#App {
-  animation: 0.3s appear;
+// transitions
+.switch-wrapper {
+  position: relative;
+}
 
-  section, main, div {
-    animation: 0.3s appear;
-  }
+.switch-wrapper > div {
+  position: absolute;
+  background: white;
+  width: 100%;
+  top: 0;
+  max-height: 100vh;
+  overflow: auto;
 }
 
 @keyframes appear {
