@@ -4,7 +4,8 @@ const useAlert = () => {
   const [openAlert, setOpenAlert] = useState(false)
   const [alertOptions, setAlertOptions] = useState({
     type: '',
-    message: ''
+    message: '',
+    duration: 0
   })
 
   const showAlert = (options) => {
@@ -12,10 +13,19 @@ const useAlert = () => {
     setOpenAlert(true)
   }
 
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
+    setTimeout(() => {
+      setOpenAlert(false)
+    }, alertOptions.duration)
+  }
+
   return {
     showAlert,
     alertProps: {
-      setOpenAlert,
+      handleClose,
       openAlert,
       alertOptions
     }

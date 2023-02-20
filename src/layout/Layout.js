@@ -1,7 +1,7 @@
-import { Fragment } from "react"
+import React, { Fragment } from 'react'
 
-import AppFooter from '../components/AppFooter/AppFooter';
-import AppHeader from '../components/AppHeader/AppHeader';
+import AppFooter from '../components/AppFooter/AppFooter'
+import AppHeader from '../components/AppHeader/AppHeader'
 
 const Layout = (props) => {
   return <Fragment>
@@ -11,4 +11,4 @@ const Layout = (props) => {
   </Fragment>
 }
 
-export default Layout;
+export default Layout

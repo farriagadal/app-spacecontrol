@@ -1,14 +1,14 @@
-import React from 'react';
+import React from 'react'
 
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
-import logo from '../../assets/icons/logo-white.svg';
+import logo from '../../assets/icons/logo-white.svg'
 
-import Facebook from '@material-ui/icons/Facebook';
-import Instagram from '@material-ui/icons/Instagram';
-import LinkedIn from '@material-ui/icons/LinkedIn';
+import Facebook from '@material-ui/icons/Facebook'
+import Instagram from '@material-ui/icons/Instagram'
+import LinkedIn from '@material-ui/icons/LinkedIn'
 
-import './AppFooter.scss';
+import './AppFooter.scss'
 
 const AppFooter = props => {
   return (
@@ -34,7 +34,7 @@ const AppFooter = props => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default AppFooter;
+export default AppFooter

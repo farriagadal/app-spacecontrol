@@ -2,5 +2,9 @@
   &__content {
     width: 390px;
     margin: auto;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
   }
 }

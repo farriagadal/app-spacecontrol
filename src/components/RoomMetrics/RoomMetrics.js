@@ -21,7 +21,7 @@ const RoomMetrics = (props) => {
         console.log('set data', data)
         setRoom(data)
       })
-    }, 10000)
+    }, 1000)
   }
 
   return (

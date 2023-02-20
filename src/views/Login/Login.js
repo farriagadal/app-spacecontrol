@@ -1,26 +1,39 @@
-import React from 'react';
+import React from 'react'
 
-import AccessAlarmIcon from '@material-ui/icons/AccessAlarm';
-import InputText from '../../components/InputText/InputText'
+import { Link } from 'react-router-dom'
+//  components
+import LoginForm from 'src/components/LoginForm/LoginForm'
+import SideContent from 'src/components/SideContent/SideContent'
+// icons
+import googleIcon from 'src/assets/icons/google-icon.svg'
+// styles
+import styles from './Login.module.scss'
 
-import './Login.scss';
-
-const Login = props => {
+const Login = () => {
   return (
-    <section className="Login-Component">
-      <div className="Login-Component__sidebar"></div>
-      <div className="Login-Component__content">
-        <div className="Login-Component__content__card">
-          <AccessAlarmIcon />
-          <h1>Login</h1>
-          <InputText label='Email' type='text' />
-          <InputText label='Password' type='password' />
-          <button>Ingresar</button>
+    <section className={styles.main}>
+      <SideContent />
+      <div className={styles.content}>
+        <div className={styles.card}>
+          <h1>Sign in</h1>
+          <button type="button" className={styles.btnGoogle}>
+            <img src={googleIcon} alt="icon" />
+            Sign in with Google
+          </button>
+          <div className={styles.divider}>
+            <span />
+            <p>OR</p>
+            <span />
+          </div>
+          <LoginForm />
+          <p className={styles.registerBtn}>
+            ¿No tienes una cuenta?
+            <Link to="/register">Registrate!</Link>
+          </p>
         </div>
       </div>
-
     </section>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login

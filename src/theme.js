@@ -1,6 +1,7 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+/* eslint-disable */
+import { createTheme } from '@material-ui/core/styles';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   typography: {
     button: {
       textTransform: 'capitalize',
@@ -25,12 +26,21 @@ const theme = createMuiTheme({
       containedPrimary: {
         height: 47,
         fontWeight: 'bold',
-        fontSize: 16
+        fontSize: 16,
+        letterSpacing: 0
       }
     },
     MuiAppBar: {
       colorDefault: {
         backgroundColor: '#fff',
+      }
+    },
+    MuiIconButton: {
+      colorSecondary: {
+        backgroundColor: '#24818110',
+        '&:hover': {
+          backgroundColor: "#24818150",
+       }
       }
     }
   },

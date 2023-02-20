@@ -13,17 +13,17 @@ const connectDevice = (payload) => new Promise((resolve, reject) => {
 const execAction = (payload) => new Promise((resolve, reject) => {
   api.put('/device', payload)
     .then((response) => {
-      resolve(response.data)
+      resolve(response)
     })
     .catch((err) => {
       reject(err)
     })
 })
 
-const verifyToken = (payload) => new Promise((resolve, reject) => {
+const verifyDevice = () => new Promise((resolve, reject) => {
   api.get('/device/verify')
     .then((response) => {
-      resolve(response.data)
+      resolve(response)
     })
     .catch((err) => {
       reject(err)
@@ -33,5 +33,5 @@ const verifyToken = (payload) => new Promise((resolve, reject) => {
 export default {
   connectDevice,
   execAction,
-  verifyToken
+  verifyDevice
 }

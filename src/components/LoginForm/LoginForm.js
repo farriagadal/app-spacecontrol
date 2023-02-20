@@ -1,80 +1,68 @@
-import React, { useState } from 'react'
-// hooks
-import useInputValue from '../../hooks/useInputValue'
+/* eslint-disable no-unused-vars */
+import React, { useContext } from 'react'
 // services
 import AuthService from '../../services/auth.service'
+// hooks
+import useAlert from '../../hooks/useAlert'
+import useInputValue from '../../hooks/useInputValue'
+import { useHistory } from 'react-router-dom'
 // components
-import { Link } from 'react-router-dom'
+import Alert from '../../components/Alert/Alert'
 import InputText from '../../components/InputText/InputText'
 import Button from '@material-ui/core/Button'
-import Snackbar from '@material-ui/core/Snackbar'
-import MuiAlert from '@material-ui/lab/Alert'
-
-const Alert = (props) => {
-  return <MuiAlert variant="filled" {...props} />
-}
+// context
+import MainContext from '../../context/mainContext'
+import AuthContext from '../../context/authContext'
 
 const LoginForm = () => {
+  const [, authDispatch] = useContext(AuthContext.Context)
+  const [, mainDispatch] = useContext(MainContext.Context)
+  const history = useHistory()
   const email = useInputValue('')
   const password = useInputValue('')
-  const [open, setOpen] = useState(false)
-  const [alertMessage, setAlertMessage] = useState({
-    type: '',
-    message: ''
-  })
-  const [alertType, setAlertType] = useState('success')
-
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return
-    }
-    setOpen(false)
-  }
+  const { showAlert, alertProps } = useAlert()
 
   const handleSignIn = async () => {
-    if (email && password) {
-      try {
-        const res = await AuthService.signIn({ email: email.value, password: password.value })
-        console.log(res)
-        console.log(email.value)
-        console.log(password.value)
-        setOpen(true)
-        console.log('open', open)
-      } catch (err) {
-        setOpen(false)
-        console.log(err)
-        setAlertType('error')
-        setAlertMessage(
-          ...alertMessage,
-          {
-            message: 'El email y/o contraseña están errones.',
-            type: 'error'
-          }
-        )
+    if (!email.value || !password.value) return
+    mainDispatch({ type: 'SET_LOADING', payload: true })
+    try {
+      const data = await AuthService.signIn({ email: email.value, password: password.value })
+      const user = { token: data.token, ...data.user }
+      authDispatch({ type: 'SET_USER', payload: user })
+      setTimeout(() => {
+        mainDispatch({ type: 'SET_LOADING', payload: false })
+        history.push('/rooms')
+      }, 1000)
+    } catch (err) {
+      if (err.data && err.data.error && err.data.error.emailInvalid) {
+        const email = err.data.user.email
         setTimeout(() => {
-          setOpen(true)
-        }, 3000)
+          mainDispatch({ type: 'SET_LOADING', payload: false })
+          history.push(`/send-email?email=${email}&send=true`)
+        }, 1000)
+        return
       }
+      showAlert({ type: 'error', message: 'El email y/o contraseña están errones.' })
+      mainDispatch({ type: 'SET_LOADING', payload: false })
     }
   }
 
   return (
     <div>
+      {/* USER ID: { authState.user.id ?? <p>SIN ID</p> } */}
       <InputText value={email} label="Your Email" type="text" />
       <InputText value={password} label="Password" type="password" />
       <br />
-      <Button onClick={() => handleSignIn()} variant="contained" color="primary" className="w-full">
-        Ingresar
+      <Button
+        disabled={!email.value || !password.value}
+        onClick={() => handleSignIn()}
+        variant="contained"
+        color="primary"
+        className="w-100"
+      >
+        Log in
       </Button>
-      <p className="Login-Component__content__register-btn">
-        ¿No tienes una cuenta?
-        <Link to="/register">Registrate!</Link>
-      </p>
-      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-      <Alert onClose={handleClose} severity={alertType}>
-        { alertMessage.message }
-      </Alert>
-      </Snackbar>
+      <Alert {...alertProps} />
     </div>
   )
 }
