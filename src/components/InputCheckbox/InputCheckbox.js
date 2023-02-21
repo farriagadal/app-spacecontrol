@@ -5,15 +5,10 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 
 import './InputCheckbox.scss';
 
-const InputCheckbox = ({ value, label, checked, onChange }) => {
+const InputCheckbox = props => {
   return (
     <div className="InputCheckbox">
-      <FormControlLabel
-        control={
-          <Checkbox color="primary" name="checkedC" checked={checked}  onChange={onChange} />
-        }
-        label={label}
-      />
+      <FormControlLabel control={<Checkbox color="primary" name="checkedC" />} label={props.label} />
     </div>
   );
 };

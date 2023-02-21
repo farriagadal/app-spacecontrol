@@ -46,14 +46,8 @@ const LoginForm = () => {
       <InputText value={email} label="Your Email" type="text" />
       <InputText value={password} label="Password" type="password" />
       <br />
-      <Button
-        disabled={!email.value || !password.value}
-        onClick={() => handleSignIn()}
-        variant="contained"
-        color="primary"
-        className="w-full"
-      >
-        Log in
+      <Button onClick={() => handleSignIn()} variant="contained" color="primary" className="w-full">
+        Ingresar
       </Button>
       <p className="Login-Component__content__register-btn">
         ¿No tienes una cuenta?

@@ -13,11 +13,11 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Loader = () => {
-  const [mainState] = useContext(MainContext.Context)
+  const [authState] = useContext(MainContext.Context)
   const classes = useStyles()
 
   return (
-    <Backdrop className={classes.backdrop} open={mainState.isLoading}>
+    <Backdrop className={classes.backdrop} open={authState.isLoading}>
       <CircularProgress color="inherit" />
     </Backdrop>
   )

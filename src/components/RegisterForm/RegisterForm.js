@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 // services
 import AuthService from '../../services/auth.service'
 // hooks
@@ -12,8 +12,6 @@ import Button from '@material-ui/core/Button'
 import InputCheckbox from '../../components/InputCheckbox/InputCheckbox'
 // others
 import Validator from 'fastest-validator'
-// context
-import MainContext from '../../context/mainContext'
 
 const userSchema = {
   firstName: { type: 'string', optional: false, max: '100' },
@@ -25,14 +23,12 @@ const userSchema = {
 
 const RegisterForm = () => {
   const { showAlert, alertProps } = useAlert()
-  const [, mainDispatch] = useContext(MainContext.Context)
   const history = useHistory()
   const firstName = useInputValue('')
   const lastName = useInputValue('')
   const email = useInputValue('')
   const password = useInputValue('')
   const confirmPassword = useInputValue('')
-  const [acceptTerms, setAcceptTerms] = useState(false)
   const [formErrors, setFormErrors] = useState([])
 
   const handleSignUp = async () => {
@@ -55,16 +51,11 @@ const RegisterForm = () => {
     setFormErrors([])
 
     try {
-      mainDispatch({ type: 'SET_LOADING', payload: true })
       const res = await AuthService.signUp(form)
       console.log(res)
-      setTimeout(() => {
-        mainDispatch({ type: 'SET_LOADING', payload: false })
-        history.push('/confirm-email')
-      }, 1000)
+      history.push('/register?step=2')
     } catch (err) {
       console.log('err', err)
-      mainDispatch({ type: 'SET_LOADING', payload: false })
       showAlert({ type: 'error', message: 'Ha ocurrido un error, inténte más tarde' })
     }
   }
@@ -81,11 +72,11 @@ const RegisterForm = () => {
         label='Confirm Password' type='password'
       />
       <div className="form-inputs__agree">
-        <InputCheckbox checked={acceptTerms} onChange={() => setAcceptTerms(!acceptTerms)} label={<p>I agree to all <Link to="/terms">Terms & Conditions</Link></p>} />
+        <InputCheckbox label={<p>I agree to all <Link to="/terms">Terms & Conditions</Link></p>} />
       </div>
       {/* <button className="btn btn--primary w-full">Crear</button> */}
-      <Button disabled={!acceptTerms} onClick={() => handleSignUp()} variant="contained" color="primary">
-        Continue
+      <Button onClick={() => handleSignUp()} variant="contained" color="primary">
+        Crear
       </Button>
       <Alert {...alertProps} />
     </div>

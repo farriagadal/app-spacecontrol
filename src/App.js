@@ -12,7 +12,6 @@ import Profile from './views/Profile/Profile'
 import ConfirmEmail from './views/ConfirmEmail/ConfirmEmail'
 import EmailVerified from './views/EmailVerified/EmailVerified'
 import Rooms from './views/Rooms/Rooms'
-import ComingSoon from './views/ComingSoon/ComingSoon'
 import Loader from './components/Loader/Loader'
 import Layout from './layout/Layout'
 
@@ -40,7 +39,6 @@ const App = () => {
                 <Route exact path="/verify-email" component={EmailVerified} />
                 <RouteWrapper path="/profile" component={Profile} />
                 <RouteWrapper path="/rooms" component={Rooms} />
-                <Route exact path="/coming-soon" component={ComingSoon} />
               </AnimatedSwitch>
             </div>
             <Loader />
