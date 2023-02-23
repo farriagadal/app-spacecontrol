@@ -11,11 +11,9 @@ import InputText from '../../components/InputText/InputText'
 import Button from '@material-ui/core/Button'
 // context
 import AuthContext from '../../context/authContext'
-import MainContext from '../../context/mainContext'
 
 const LoginForm = () => {
-  const [, authDispatch] = useContext(AuthContext.Context)
-  const [, mainDispatch] = useContext(MainContext.Context)
+  const [state, dispatch] = useContext(AuthContext.Context)
   const history = useHistory()
   const email = useInputValue('')
   const password = useInputValue('')
@@ -23,26 +21,24 @@ const LoginForm = () => {
 
   const handleSignIn = async () => {
     if (!email.value || !password.value) return
-    mainDispatch({ type: 'SET_LOADING', payload: true })
     try {
       const data = await AuthService.signIn({ email: email.value, password: password.value })
       console.log(data)
-      const user = { token: data.token, ...data.user }
-      authDispatch({ type: 'SET_USER', payload: user })
+      dispatch({ type: 'SET_USER', payload: data.user })
+      console.log('state1', state)
       setTimeout(() => {
-        mainDispatch({ type: 'SET_LOADING', payload: false })
-        history.push('/rooms')
+        console.log('state2', state)
       }, 1000)
+      history.push('/')
     } catch (err) {
       console.log(err)
       showAlert({ type: 'error', message: 'El email y/o contraseña están errones.' })
-      mainDispatch({ type: 'SET_LOADING', payload: false })
     }
   }
 
   return (
     <div>
-      {/* USER ID: { authState.user.id ?? <p>SIN ID</p> } */}
+      USER ID: { state.user.id ?? <p>SIN ID</p> }
       <InputText value={email} label="Your Email" type="text" />
       <InputText value={password} label="Password" type="password" />
       <br />
