@@ -5,7 +5,7 @@ const initialState = {
   user: {}
 }
 
-const Provider = ({ children }) => {
+const Store = ({ children }) => {
   const [state, dispatch] = useReducer(Reducer, initialState)
   return (
     <Context.Provider value={[state, dispatch]}>
@@ -14,9 +14,5 @@ const Provider = ({ children }) => {
   )
 }
 
-const Context = createContext(initialState)
-
-export default {
-  Provider,
-  Context
-}
+export const Context = createContext(initialState)
+export default Store

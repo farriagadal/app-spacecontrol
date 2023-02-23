@@ -20,7 +20,7 @@ import AuthContext from './context/authContext'
 
 const App = () => {
   return (
-    <AuthContext.Provider>
+    <AuthContext>
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <div className="App">
@@ -40,7 +40,7 @@ const App = () => {
           </div>
         </ThemeProvider>
       </BrowserRouter>
-    </AuthContext.Provider>
+    </AuthContext>
   )
 }
 
