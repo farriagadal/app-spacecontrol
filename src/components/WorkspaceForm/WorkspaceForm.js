@@ -1,19 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 // services
 import WorkspaceService from '../../services/workspace.service'
 // hooks
 import useInputValue from '../../hooks/useInputValue'
-import useAlert from '../../hooks/useAlert'
 // components
-import Alert from '../../components/Alert/Alert'
 import InputText from '../../components/InputText/InputText'
 import Button from '@material-ui/core/Button'
+import Snackbar from '@material-ui/core/Snackbar'
+import MuiAlert from '@material-ui/lab/Alert'
 // styles
 import './WorkspaceForm.scss'
 
+const Alert = (props) => {
+  return <MuiAlert variant="filled" {...props} />
+}
+
 const WorkspaceForm = (props) => {
   const workspace = useInputValue('')
-  const { showAlert, alertProps } = useAlert()
+  const [openAlert, setOpenAlert] = useState(false)
+  const [alertMessage, setAlertMessage] = useState({ type: '', message: '' })
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') return
+    setOpenAlert(false)
+  }
 
   const handleSignIn = async () => {
     if (workspace.value) {
@@ -22,10 +31,11 @@ const WorkspaceForm = (props) => {
         console.log(res)
       } catch (err) {
         console.log(err)
-        showAlert({ type: 'error', message: 'Ha ocurrido un error, inténte más tarde' })
+        setAlertMessage({ type: 'error', message: 'Ha ocurrido un error, inténte más tarde' })
+        setOpenAlert(true)
       }
-      props.nextSlide() // TODO: change
     }
+    props.nextSlide()
   }
 
   return (
@@ -39,7 +49,11 @@ const WorkspaceForm = (props) => {
           Continue
         </Button>
       </div>
-      <Alert {...alertProps} />
+      <Snackbar open={openAlert} autoHideDuration={3000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity={alertMessage.type}>
+          { alertMessage.message }
+        </Alert>
+      </Snackbar>
     </div>
   )
 }
