@@ -1,9 +1,7 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch, useLocation } from 'react-router-dom'
 
-import { AnimatedSwitch } from 'react-router-transition'
-
-// import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { ThemeProvider } from '@material-ui/core'
 import theme from './theme'
 
@@ -18,25 +16,28 @@ import Layout from './layout/Layout'
 import './assets/scss/app.scss'
 
 const App = () => {
-  // const location = useLocation()
+  const location = useLocation()
 
   return (
   // eslint-disable-next-line react/jsx-filename-extension
   <ThemeProvider theme={theme}>
     <div className="App">
-      <AnimatedSwitch
-        atEnter={{ opacity: 0 }}
-        atLeave={{ opacity: 0 }}
-        atActive={{ opacity: 1 }}
-        className="switch-wrapper"
-      >
-        <Route exact path="/" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/confirm-email" component={ConfirmEmail} />
-        <Route exact path="/verify-email" component={EmailVerified} />
-        <RouteWrapper path="/profile" component={Profile} />
-        <RouteWrapper path="/rooms" component={Rooms} />
-      </AnimatedSwitch>
+      <TransitionGroup>
+        <CSSTransition
+          timeout={300}
+          classNames='fade'
+          key={location.key}
+        >
+          <Switch location={location}>
+            <Route exact path="/" component={Login} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/confirm-email" component={ConfirmEmail} />
+            <Route exact path="/verify-email" component={EmailVerified} />
+            <RouteWrapper path="/profile" component={Profile} />
+            <RouteWrapper path="/rooms" component={Rooms} />
+          </Switch>
+        </CSSTransition>
+      </TransitionGroup>
     </div>
   </ThemeProvider>
   )
