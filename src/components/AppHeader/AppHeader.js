@@ -45,9 +45,7 @@ const AppHeader = props => {
               </div>
             </div>
             <div className="dropdown-user__actions">
-              <Link to="/profile">
-                <button className="dropdown-user__actions__option">Ver Cuenta</button>
-              </Link>
+              <button className="dropdown-user__actions__option">Ver Cuenta</button>
               <button className="dropdown-user__actions__option">Cerrar Sesión</button>
             </div>
           </div>
