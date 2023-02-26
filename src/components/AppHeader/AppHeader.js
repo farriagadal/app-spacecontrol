@@ -1,29 +1,39 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-import { Link } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 
-import logo from '../../assets/icons/logo-black.svg'
+import logo from 'src/assets/icons/logo-black.svg'
 
 import MenuIcon from '@material-ui/icons/Menu'
 import NotificationsIcon from '@material-ui/icons/NotificationsOutlined'
 import PersonIcon from '@material-ui/icons/Person'
-
-import Dropdown from '../Dropdown/Dropdown'
+import { IconButton } from '@material-ui/core'
+import Dropdown from 'src/components/Dropdown/Dropdown'
 
 import './AppHeader.scss'
 
-import { IconButton } from '@material-ui/core'
+import AuthContext from '../../context/authContext'
 
-const AppHeader = props => {
+const AppHeader = () => {
+  const [, authDispatch] = useContext(AuthContext.Context)
+  const history = useHistory()
+
+  const logout = () => {
+    authDispatch({ type: 'LOG_OUT' })
+    history.push('/')
+  }
+
   return (
-    <header className="AppHeader flex">
+    <header className="AppHeader d-flex">
       <Link to="/">
         <img className="logo" src={logo} alt="icon" />
       </Link>
-      <div className="flex ml-auto">
-        <IconButton className="icon" color="secondary" size="medium">
-          <MenuIcon />
-        </IconButton>
+      <div className="d-flex ml-auto">
+        <Link to="/rooms">
+          <IconButton className="icon" color="secondary" size="medium">
+            <MenuIcon />
+          </IconButton>
+        </Link>
         <IconButton className="icon" color="secondary" size="medium">
           <NotificationsIcon />
         </IconButton>
@@ -45,8 +55,10 @@ const AppHeader = props => {
               </div>
             </div>
             <div className="dropdown-user__actions">
-              <button className="dropdown-user__actions__option">Ver Cuenta</button>
-              <button className="dropdown-user__actions__option">Cerrar Sesión</button>
+              <Link to="/profile">
+                <button className="dropdown-user__actions__option">Ver Cuenta</button>
+              </Link>
+              <button onClick={() => logout()} className="dropdown-user__actions__option">Cerrar Sesión</button>
             </div>
           </div>
         </Dropdown>

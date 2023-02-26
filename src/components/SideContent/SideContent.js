@@ -8,12 +8,12 @@ import shapeIcon from '../../assets/icons/bg-shape.svg'
 
 const SideContent = props => {
   return (
-    <div className="SideContent-Component">
+    <div className={`SideContent-Component ${props.isDevice ? 'device' : ''}`}>
       <div className="SideContent-Component__card">
         <Link to="/">
           <img className="SideContent-Component__logo" src={logo} alt="icon" />
         </Link>
-        <h2>Where teams design together</h2>
+        <h2>{ props.title || 'Where teams design together' }</h2>
         <p>Reprehenderit esse labore id veniam ut veniam non ex adipisicing amet ullamco dolor proident.</p>
         <img className="SideContent-Component__shape" src={shapeIcon} alt="icon" />
       </div>

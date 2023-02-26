@@ -1,37 +1,31 @@
 import React from 'react'
-// components
-import RegisterForm from '../../components/RegisterForm/RegisterForm'
-import SideContent from '../../components/SideContent/SideContent'
-// styles
-import './Register.scss'
-// icons
-import googleIcon from '../../assets/icons/google-icon.svg'
+
+import RegisterForm from 'src/components/RegisterForm/RegisterForm'
+import SideContent from 'src/components/SideContent/SideContent'
+
+import styles from './Register.module.scss'
+
+import googleIcon from 'src/assets/icons/google-icon.svg'
 
 const Register = () => {
   return (
-    <section className="Register-Component">
+    <section className={styles.main}>
       <SideContent />
-      <div className="Register-Component__content">
-        <div className="Register-Component__content__card">
+      <div className={styles.content}>
+        <div className={styles.card}>
           <h1>Register</h1>
           <RegisterForm />
-          <div className="Register-Component__content__google-section">
-            <div className="Register-Component__content__divider">
+          <div className={styles.googleSection}>
+            <div className={styles.divider}>
               <span/>
               <p>OR</p>
               <span/>
             </div>
-            <button className="Register-Component__content__btn-google flex w-full">
+            <button className={styles.googleBtn}>
               <img src={googleIcon} alt="icon" />
               Sign up with Google
             </button>
           </div>
-
-          <br />
-          {/* <button className="btn btn--primary w-full">Ingresar</button>
-          <p className="Register-Component__content__register-btn">¿No tienes una cuenta?
-            <a href="/">Registrate!</a>
-          </p> */}
         </div>
       </div>
     </section>
